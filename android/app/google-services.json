@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "770919611667",
+    "firebase_url": "https://dailymeat-5f2f0.firebaseio.com",
+    "project_id": "dailymeat-5f2f0",
+    "storage_bucket": "dailymeat-5f2f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770919611667:android:baea573100cf12f353aee6",
+        "android_client_info": {
+          "package_name": "com.tdmdelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770919611667-egh9r0nh20qt1usjo2j9rc9hbq07mqqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKSEIA4sXygpoDPeTYtuvRqyHfyCPdhIU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "770919611667-egh9r0nh20qt1usjo2j9rc9hbq07mqqv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
