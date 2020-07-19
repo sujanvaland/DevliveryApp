@@ -43,10 +43,10 @@ const styles = StyleSheet.create({
     width:'70%'
   },
   buttonStyleDisable: {
-    backgroundColor:"#7ba28d",
+    backgroundColor:"#ccc",
   },
   buttonStyleActive: {
-    backgroundColor:color.COLOR_PRIMARY,
+    backgroundColor:color.COLOR_BLACK,
   },
   buttonStyleText:{
     fontSize:Typography.FONT_SIZE17, 

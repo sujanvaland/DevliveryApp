@@ -18,7 +18,7 @@ export const LinkButton = props => {
 
 const styles = StyleSheet.create({
   textStyle: { 
-    color: color.COLOR_YELLOW,
+    color: color.COLOR_BLACK,
     fontSize: Typography.FONT_SIZE12,
     lineHeight: 35,
     letterSpacing: 0,

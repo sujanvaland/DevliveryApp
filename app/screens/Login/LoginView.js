@@ -80,7 +80,7 @@ class LoginView extends Component {
     let password = this.state.password;
     let cenv = await AsyncStorage.getItem('environment');
     if(username == "ChangeData:com"){
-      await AsyncStorage.setItem('environment','https://www.thedailymeat.com');
+      await AsyncStorage.setItem('environment','https://www..com');
       this.setState({ ShowEnvMsg: true,CurrentEnv:".com" });
     }else if(username == "ChangeData:testlink"){
       await AsyncStorage.setItem('environment','http://www.thedailymeat.com');
@@ -139,7 +139,7 @@ class LoginView extends Component {
 
     return (
       <View style={loginStyles.loginView}>
-      <Image style={loginStyles.loginBg} source={require('../../assets/img/login_bg.jpg')} resizeMode="cover" /> 
+      <Image style={loginStyles.loginBg} source={require('../../assets/img/delivery_login.jpg')} resizeMode="cover" /> 
       <ScrollView showsVerticalScrollIndicator={false} scrollEnabled={this.state.enableScroll}>
       <KeyboardAvoidingView style={loginStyles.container} enabled>
         {
@@ -152,13 +152,13 @@ class LoginView extends Component {
             // dark-content, light-content and default
             hidden={false}
             //To hide statusBar
-            backgroundColor="#000"
+            backgroundColor="#009846"
             //Background color of statusBar
             translucent={false}
             //allowing light, but not detailed shapes
             networkActivityIndicatorVisible={true}
           />
-          <Image style={loginStyles.logoImg} source={require('../../assets/img/logo1.png')} resizeMode="cover" /> 
+          <Image style={loginStyles.logoImg} source={require('../../assets/img/logo-img.png')} resizeMode="contain" /> 
         </View>
         
         <View style={globalStyles.loginContainer}>

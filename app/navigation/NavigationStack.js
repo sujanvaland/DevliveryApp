@@ -15,6 +15,8 @@ import PasswordChange from '../screens/PasswordChange';
 import PasswordReset from '../screens/PasswordReset';
 import MyOrders from '../screens/MyOrders';
 
+
+
 import { HeaderComponent } from 'app/components';
 
 const AuthStack = createStackNavigator({         
@@ -55,15 +57,9 @@ const RNApp = createStackNavigator(
         },
         Login: {
             screen: Login,
-            navigationOptions: ({ navigation }) =>
-            {
-                return {
-                    header: <HeaderComponent iname={"ios-arrow-back"}
-                    back={true} navigation={navigation} />,
-                    gesturesEnabled: false
-                }
-            }
+            navigationOptions: { header: null, gesturesEnabled: false }
         },
+       
         NoInternet: {
             screen: NoInternet,
             navigationOptions: { header: null, gesturesEnabled: false }
@@ -127,17 +123,17 @@ const RNApp = createStackNavigator(
         initialRouteName: 'Login'
     } 
 );
-//export default createAppContainer(RNApp);
+export default createAppContainer(RNApp);
 
-export default createAppContainer(
-    createSwitchNavigator(
-      {
-        AuthLoading: AuthLoadingScreen,
-        App: RNApp,
-        Auth: AuthStack,
-      },
-      {
-        initialRouteName: 'AuthLoading',
-      }
-    )
-  );
+// export default createAppContainer(
+//     createSwitchNavigator(
+//       {
+//         AuthLoading: AuthLoadingScreen,
+//         App: RNApp,
+//         Auth: AuthStack,
+//       },
+//       {
+//         initialRouteName: 'AuthLoading',
+//       }
+//     )
+//   );

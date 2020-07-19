@@ -29,7 +29,7 @@ const globalStyles = StyleSheet.create({
   logoContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    minHeight: "30%"
+    minHeight: "43%"
   },
   tagLine: {
     fontSize: Typography.FONT_SIZE,

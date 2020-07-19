@@ -32,7 +32,7 @@ class DashboardView extends Component {
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
       {
         title: 'Fine Location Permission',
-        message: 'TheDailyMeat needs access to your location.',
+        message: 'TDMDelivery needs access to your location.',
         buttonNeutral: 'Ask Me Later',
         buttonNegative: 'Cancel',
         buttonPositive: 'OK',
