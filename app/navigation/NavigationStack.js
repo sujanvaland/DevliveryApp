@@ -93,10 +93,9 @@ const RNApp = createStackNavigator(
             navigationOptions: ({ navigation }) =>
             {
                 return {
-                    header: <HeaderComponent iname={"ios-arrow-back"}
-                    title={"My Orders"}
-                    back={true} navigation={navigation}
-                    cartCount={true} cart={true} cartText={true} />,
+                    header: <HeaderComponent iname={"ios-back"}
+                    title={"Orders"}
+                    back={true} navigation={navigation}/>,
                     gesturesEnabled: false
                 }
             }
@@ -120,7 +119,7 @@ const RNApp = createStackNavigator(
         }
     },
     {
-        initialRouteName: 'Login'
+        initialRouteName: 'MyOrders'
     } 
 );
 export default createAppContainer(RNApp);

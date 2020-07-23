@@ -5,31 +5,32 @@ const { color ,Typography} = Styles;
 
 const MyOrdersStyles = StyleSheet.create({
     tabText:{
-        textTransform:"uppercase",
+        textTransform:"capitalize",
         color:color.COLOR_WHITE,
         fontSize:Typography.fontSize,
         fontFamily:Typography.FONT_REGULAR,
-        textAlign:'center',
-        
+        textAlign:'center', 
     },
     tabBox:{
-        backgroundColor:color.COLOR_PRIMARY,
         paddingHorizontal:viewportWidth*0.04,
-        paddingVertical:viewportWidth*0.035,
+        paddingVertical:viewportWidth*0.04,
         flex:1,
-        display:'flex'
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:color.COLOR_PRIMARY,
     },
-    tabActiveLine:{
-        borderBottomWidth:4,
-        borderColor:color.COLOR_BLACK
-    },
-    tabLine:{
-        borderBottomWidth:4,
-        borderColor:"transparent"
+    border:{
+        borderRightWidth:1,
+        borderColor:color.COLOR_WHITE,
+        opacity:.8,
+        marginVertical:15
     },
     tabHeader:{
         display:'flex',
         flexDirection:'row',
+        backgroundColor:color.COLOR_PRIMARY,
     },
     tabContent:{
         backgroundColor:color.COLOR_LIGHTGRAY,
@@ -54,12 +55,19 @@ const MyOrdersStyles = StyleSheet.create({
     title:{
         color:color.COLOR_PRIMARY,
         fontSize:Typography.FONT_SIZE,
-        fontFamily:Typography.FONT_REGULAR
+        fontFamily:Typography.FONT_REGULAR,
+        
     },
     subtitle:{
         color:color.COLOR_DARKGRAY,
         fontSize:Typography.FONT_SIZE12,
-        fontFamily:Typography.FONT_REGULAR
+        fontFamily:Typography.FONT_REGULAR,
+        marginVertical:viewportWidth*0.01
+    },
+    locationText:{
+        color:color.COLOR_PRIMARY,
+        fontSize:Typography.FONT_SIZE14,
+        fontFamily:Typography.FONT_REGULAR,
     },
     boldText:{
         fontFamily:Typography.FONT_MEDIUM
@@ -74,7 +82,7 @@ const MyOrdersStyles = StyleSheet.create({
         fontSize:Typography.FONT_SIZE12,
         fontFamily:Typography.FONT_MEDIUM,
         backgroundColor:color.COLOR_PRIMARY,
-        paddingVertical:viewportWidth*0.016,
+        paddingVertical:viewportWidth*0.02,
         paddingHorizontal:viewportWidth*0.055,
         borderRadius:viewportWidth*0.013
     },
@@ -85,6 +93,26 @@ const MyOrdersStyles = StyleSheet.create({
     green:{
         color:color.COLOR_PRIMARY,
         fontFamily:Typography.FONT_MEDIUM,
+    },
+    sortImg:{
+        width:viewportWidth*0.035,
+        height:viewportWidth*0.035,
+        marginRight:viewportWidth*0.015
+    },
+    lineImg:{
+        height:5
+    },
+    locationImg:{
+        width:viewportWidth*0.035,
+        height:viewportWidth*0.035,
+        marginRight:viewportWidth*0.01
+    },
+    locationContent:{
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:'center',
+        alignItems:'center',
+        marginTop:viewportWidth*0.02
     }
 });
 

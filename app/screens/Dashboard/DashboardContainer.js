@@ -87,8 +87,8 @@ class DashboardContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    categoryList:state.dashboardReducer.categoryList,
-    newarrivalproductlist:state.dashboardReducer.newarrivalproductlist,
+    //categoryList:state.dashboardReducer.categoryList,
+    //newarrivalproductlist:state.dashboardReducer.newarrivalproductlist,
     cartCount:state.cartReducer.cartcount,
     loading: state.loadingReducer,
     login_token:state.loginReducer.login_token,
