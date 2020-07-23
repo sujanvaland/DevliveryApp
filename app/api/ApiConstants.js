@@ -11,10 +11,10 @@ const ApiConstants = {
     PROFILEIMGPATH : 'uploads/customerimage/',
     GOOGLEAPIKEY:'AIzaSyAKKEplE__ZhgDZAKSM7-ObelAcBPX0P_M',
     //API PATH
-    LOGINPATH: 'login/customer_login',
-    ACCOUNTVERIFICATIONPATH:'login/verify_customer',
+    LOGINPATH: 'login/deliverystaff_login',
+    //ACCOUNTVERIFICATIONPATH:'login/verify_customer',
     FORGOTPASSWORD: 'login/customer_reset_password',
-    USERDETAIL:'account/userdetail',
+    //USERDETAIL:'account/userdetail',
     PROFILEIMAGE:'account/profileimage',
     UPDATEPROFILEIMAGE :'account/updateprofileimage',
     
