@@ -14,6 +14,7 @@ import ResetPassword from '../screens/ResetPassword';
 import PasswordChange from '../screens/PasswordChange';
 import PasswordReset from '../screens/PasswordReset';
 import MyOrders from '../screens/MyOrders';
+import OrderList from '../screens/OrderList';
 
 
 
@@ -36,7 +37,7 @@ const RNApp = createStackNavigator(
             navigationOptions: ({ navigation }) =>
             {
                 return {
-                    header: <HeaderComponent iname={"ios-arrow-back"}
+                    header: <HeaderComponent iname={"chevron-back"}
                     title={"Forgot Password"}
                     back={true} navigation={navigation} />,
                     gesturesEnabled: false
@@ -69,7 +70,7 @@ const RNApp = createStackNavigator(
             navigationOptions: ({ navigation }) =>
             {
                 return {
-                    header: <HeaderComponent iname={"ios-arrow-back"}
+                    header: <HeaderComponent iname={"chevron-back"}
                     title={"Reset Password"}
                     back={true} navigation={navigation} />,
                     gesturesEnabled: false
@@ -81,7 +82,7 @@ const RNApp = createStackNavigator(
             navigationOptions: ({ navigation }) =>
             {
                 return {
-                    header: <HeaderComponent iname={"ios-arrow-back"}
+                    header: <HeaderComponent iname={"chevron-back"}
                     title={"Profile Photo"}
                     back={true} navigation={navigation} />,
                     gesturesEnabled: false
@@ -93,7 +94,19 @@ const RNApp = createStackNavigator(
             navigationOptions: ({ navigation }) =>
             {
                 return {
-                    header: <HeaderComponent iname={"ios-back"}
+                    header: <HeaderComponent iname={"chevron-back"}
+                    title={"Orders"}
+                    back={true} navigation={navigation}/>,
+                    gesturesEnabled: false
+                }
+            }
+        },
+        OrderList:{
+            screen: OrderList,
+            navigationOptions: ({ navigation }) =>
+            {
+                return {
+                    header: <HeaderComponent iname={"chevron-back"}
                     title={"Orders"}
                     back={true} navigation={navigation}/>,
                     gesturesEnabled: false
@@ -119,7 +132,7 @@ const RNApp = createStackNavigator(
         }
     },
     {
-        initialRouteName: 'MyOrders'
+        initialRouteName: 'Login'
     } 
 );
 export default createAppContainer(RNApp);

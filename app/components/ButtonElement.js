@@ -17,7 +17,7 @@ const ButtonElement = props => {
     <TouchableOpacity disabled={disabled} onPress={onPress} activeOpacity={0.7} style={[styles.buttonStyle , (disabled) ? styles.buttonStyleDisable : styles.buttonStyleActive]}>
       <Text style={[styles.buttonStyleText , (disabled) ? styles.buttonStyleDisable : styles.buttonStyleActive]}>{title}</Text>
       <Icon
-        name="ios-arrow-forward"
+        name="chevron-forward"
         style={styles.arrowRight}
        />
     </TouchableOpacity> 
