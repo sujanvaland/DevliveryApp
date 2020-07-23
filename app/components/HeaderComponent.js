@@ -306,15 +306,13 @@ class HeaderComponent extends Component{
               
             </View>
         </Modal>
-        <Header style={[(this.props.navigation.state.routeName == "Dashboard") ? 
-          headerbgGreen : headerbgBlack,
-          headerStyle ]}>
+        <Header style={[headerbgBlack,headerStyle ]}>
         <StatusBar
           barStyle="light-content"
           // dark-content, light-content and default
           hidden={false}
           //To hide statusBar
-          backgroundColor={(this.props.navigation.state.routeName == "Dashboard") ? "#009846" : "#000000"}
+          backgroundColor={"#000000"}
           //Background color of statusBar
           translucent={false}
           //allowing light, but not detailed shapes
@@ -355,6 +353,7 @@ class HeaderComponent extends Component{
         {sidemenu === true &&
           <TouchableOpacity style={backStyle} onPress={() => { this.toggleModal()}}>
             <Icon name={props.iname} style={styles.iconMenuStyle} />
+            <Text style={styles.backStyleOne}>{props.title}</Text>
           </TouchableOpacity>
         }
         

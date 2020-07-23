@@ -118,7 +118,8 @@ const RNApp = createStackNavigator(
             navigationOptions: ({ navigation }) =>
             {
                 return {
-                    header: null,
+                    header: <HeaderComponent iname={"ios-menu"} 
+                    sidemenu={true} title={"Dashboard"} /> ,
                     gesturesEnabled: false
                 }
             }
