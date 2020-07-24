@@ -76,14 +76,7 @@ class HeaderComponent extends Component{
   navigateToAccount=()=>{
     this.setState({ tabActive: true });
   }
-  navigateToTermsPolicies=()=>{
-    navigationActions.navigateToTermsPolicies();
-    this.setState({ isModalVisible: false });
-  }
-  // navigateToFAQ=()=>{
-  //   navigationActions.navigateToFAQ();
-  //   this.setState({ isModalVisible: false });
-  // }
+  
   navigateToMyOrders=()=>{
     navigationActions.navigateToMyOrders();
     this.setState({ isModalVisible: false });
@@ -259,19 +252,11 @@ class HeaderComponent extends Component{
                     </TouchableOpacity>
                   }
                   
-                    <TouchableOpacity style={styles.linkBox} onPress={this.navigateToTermsPolicies}>
-                      <Image style={styles.listIcon} source={require('../assets/img/terms.png')} 
-                      resizeMode="contain" />
-                      <Text style={styles.listLink}>Terms and Conditions</Text>
-                    </TouchableOpacity>
+                    
                     <TouchableOpacity style={styles.linkBox} >
                       <Image style={styles.listIcon} source={require('../assets/img/notification.png')} resizeMode="contain" />
                       <Text style={styles.listLink}>Notification</Text>
                       <Text style={styles.notificationCount}>13</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.linkBox} >
-                      <Image style={styles.listIcon} source={require('../assets/img/location_link.png')} resizeMode="contain" />
-                      <Text style={styles.listLink}>Contact Us</Text>
                     </TouchableOpacity>
 
                   {

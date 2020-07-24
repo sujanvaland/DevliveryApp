@@ -23,3 +23,7 @@ export function navigateToEditProfileImage(params) {
 export function navigateToDashboard(params) {
     NavigationService.navigate('Dashboard', params);
 }
+
+export function navigateToMyOrders(params) {
+    NavigationService.navigate('MyOrders', params);
+}

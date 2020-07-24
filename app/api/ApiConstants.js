@@ -13,7 +13,7 @@ const ApiConstants = {
     //API PATH
     LOGINPATH: 'login/deliverystaff_login',
     //ACCOUNTVERIFICATIONPATH:'login/verify_customer',
-    FORGOTPASSWORD: 'login/customer_reset_password',
+    FORGOTPASSWORD: 'login/deliverystaff_reset_password',
     //USERDETAIL:'account/userdetail',
     PROFILEIMAGE:'account/profileimage',
     UPDATEPROFILEIMAGE :'account/updateprofileimage',

@@ -1,5 +1,6 @@
 import React from 'react';
-import { createStackNavigator, createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import Account from '../screens/Account';
 import AuthLoadingScreen from 'app/screens/Login/AuthLoading';
 import Forgotpassword from '../screens/Forgotpassword';
@@ -136,17 +137,17 @@ const RNApp = createStackNavigator(
         initialRouteName: 'Login'
     } 
 );
-export default createAppContainer(RNApp);
+//export default createAppContainer(RNApp);
 
-// export default createAppContainer(
-//     createSwitchNavigator(
-//       {
-//         AuthLoading: AuthLoadingScreen,
-//         App: RNApp,
-//         Auth: AuthStack,
-//       },
-//       {
-//         initialRouteName: 'AuthLoading',
-//       }
-//     )
-//   );
+export default createAppContainer(
+    createSwitchNavigator(
+      {
+        AuthLoading: AuthLoadingScreen,
+        App: RNApp,
+        Auth: AuthStack,
+      },
+      {
+        initialRouteName: 'AuthLoading',
+      }
+    )
+  );

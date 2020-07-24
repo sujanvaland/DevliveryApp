@@ -18,7 +18,7 @@ function* loginAsync(action) {
     yield put(loginActions.enableLoader());
     //how to call api
     const response = yield call(loginUser, action.username, action.password);
-    console.log(response);
+    //console.log(response);
     if (response.Message === "success") {
         yield put(loginActions.onLoginResponse(response));
         // _storeData("login_token","");
