@@ -2,7 +2,7 @@
 import ApiConstants from './ApiConstants';
 import * as navigationActions from 'app/actions/navigationActions';
 import AsyncStorage from '@react-native-community/async-storage';
-
+import NetInfo from "@react-native-community/netinfo";
 
 // import RNFetchBlob from 'react-native-fetch-blob'
 export default function api(path, params, method, token) {
@@ -13,16 +13,25 @@ export default function api(path, params, method, token) {
           return response;
       }
       catch (e) {
-        navigationActions.navigateToLogin();
+        //navigationActions.navigateToLogin();
         return {};
       }
     });
 }
 
 async function CallApi(params,path,method){
+
+  NetInfo.fetch().then(state => {
+    if(!state.isConnected){
+      navigationActions.navigateToNoInternet()
+      return;
+    }
+  });
+
   let env =  await retrieveData("environment");
   let login_token =  await retrieveData("login_token");
   let customerguid =  await retrieveData("customerguid");
+  //let location =  await retrieveData("location");
   if(env == null || env == "" || env == undefined){
     env = ApiConstants.BASE_URL;
   }
@@ -52,15 +61,16 @@ async function CallApi(params,path,method){
       }
     });
    
+    //console.log(location);
     // xhr.open("POST", ApiConstants.BASE_URL + "/" + path);
     xhr.open(method, env + "/" + path)
     xhr.setRequestHeader("Accept", "application/json");
+    //xhr.setRequestHeader("location", location);
     if(path == ApiConstants.LOGIN)
     {
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     }
     else{
-      //console.log(customerguid);
       xhr.setRequestHeader("Content-Type", "application/json");
       xhr.setRequestHeader("customerguid", customerguid);
       xhr.setRequestHeader("Authorization", "bearer "+login_token);

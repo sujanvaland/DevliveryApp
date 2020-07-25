@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import OrderListView from './OrderListView';
+import OrderDetailView from './OrderDetailView';
 import { connect } from 'react-redux';
 import { BackHandler } from 'react-native';
 import * as loginActions from 'app/actions/loginActions';
+import * as orderActions from 'app/actions/orderActions';
 import * as navigationActions from 'app/actions/navigationActions';
-import SplashScreen from 'react-native-splash-screen'
 
-class OrderListContainer extends Component {
+class OrderDetailContainer extends Component {
     constructor(props) {
         super(props);
     }
@@ -26,21 +26,25 @@ class OrderListContainer extends Component {
       }
     
     render() {
-        return <OrderListView {...this.props}/>;
+      const { params } = this.props.navigation.state;
+      const orderid = params ? params : null;
+      return <OrderDetailView orderid={orderid} {...this.props} />;
     }
 }
 
 function mapStateToProps(state) {
   return {
-      
+    loading: state.loadingReducer,
+    login_token:state.loginReducer.login_token,
+    myorders:state.orderReducer.myorders
   };
 }
 function mapDispatchToProps(dispatch) {
     return {
-        onOrderList: (un, pwd) => dispatch(loginActions.onOrderList(un, pwd))
+      changeOrderStatus: (orderitem) => dispatch(orderActions.changeOrderStatus(orderitem)),
     };
 }
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(OrderListContainer);
+)(OrderDetailContainer);

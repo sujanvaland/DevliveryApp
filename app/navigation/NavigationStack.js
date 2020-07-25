@@ -15,7 +15,7 @@ import ResetPassword from '../screens/ResetPassword';
 import PasswordChange from '../screens/PasswordChange';
 import PasswordReset from '../screens/PasswordReset';
 import MyOrders from '../screens/MyOrders';
-import OrderList from '../screens/OrderList';
+import OrderDetail from '../screens/OrderDetail';
 
 
 
@@ -102,8 +102,8 @@ const RNApp = createStackNavigator(
                 }
             }
         },
-        OrderList:{
-            screen: OrderList,
+        OrderDetail:{
+            screen: OrderDetail,
             navigationOptions: ({ navigation }) =>
             {
                 return {

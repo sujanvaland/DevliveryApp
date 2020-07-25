@@ -3,7 +3,7 @@ import Styles from '../../config/styles';
 const { width: viewportWidth , height: viewportHeight } = Dimensions.get('window');
 const { color ,Typography} = Styles;
 
-const OrderListStyles = StyleSheet.create({
+const OrderDetailStyles = StyleSheet.create({
     title:{
         color:color.COLOR_PRIMARY,
         fontSize:Typography.FONT_SIZE,
@@ -153,4 +153,4 @@ const OrderListStyles = StyleSheet.create({
     }
 });
 
-export default OrderListStyles;
+export default OrderDetailStyles;

@@ -17,6 +17,10 @@ const ApiConstants = {
     //USERDETAIL:'account/userdetail',
     PROFILEIMAGE:'account/profileimage',
     UPDATEPROFILEIMAGE :'account/updateprofileimage',
+
+    //Order
+    ORDERBYSTAFF:'deliverystaff/orderbystaff',
+    CHANGEORDERSTATUS:'deliverystaff/ChangeStatus',
     
     // Update before build
     BUILDNO: "b01",

@@ -6,6 +6,7 @@ import * as types from '../actions/types';
 import forgotPasswordSaga from './forgotPasswordSaga';
 import { changePasswordAsync, loadprofileimageAsync } from './accountSaga';
 import { loginAsync,logoutAsync } from './loginSaga';
+import { getCustomerOrdersAsync, changeOrderStatusAsync } from './orderSaga';
 
 export default function* watch() {
     yield all([takeEvery(types.LOGIN_REQUEST, loginAsync)]);
@@ -14,5 +15,9 @@ export default function* watch() {
     //account Saga
     yield all([takeEvery(types.CHANGEPASSWORD_REQUEST, changePasswordAsync)]);
     yield all([takeEvery(types.LOADPROFILEIMAGE_REQUEST, loadprofileimageAsync)]);
+
+    //order Saga
+    yield all([takeEvery(types.GETCUSTOMERORDERS_REQUEST, getCustomerOrdersAsync)]);
+    yield all([takeEvery(types.CHANGEORDERSTATUS_REQUEST, changeOrderStatusAsync)]);
 }
  

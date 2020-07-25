@@ -27,3 +27,7 @@ export function navigateToDashboard(params) {
 export function navigateToMyOrders(params) {
     NavigationService.navigate('MyOrders', params);
 }
+
+export function navigateToOrderDetail(params) {
+    NavigationService.navigate('OrderDetail', params);
+}
