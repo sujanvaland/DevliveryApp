@@ -24,57 +24,59 @@ import { HeaderComponent } from 'app/components';
 const AuthStack = createStackNavigator({         
     Login: {
         screen: Login,
-        navigationOptions: { header: null, gesturesEnabled: false }
+        navigationOptions: { headerShown: false, gestureEnabled: false }
     } 
 });
 const RNApp = createStackNavigator(
     {   
         Account:{
             screen: Account,
-            navigationOptions: {  header: <HeaderComponent Smalltitle={'Account'} mainpage={true} subpage={false}/>, gesturesEnabled: false }
+            navigationOptions: { 
+                header: () => <HeaderComponent Smalltitle={'Account'} mainpage={true} subpage={false}/>,
+                gestureEnabled: false }
         },
         Forgotpassword: {
             screen: Forgotpassword,
             navigationOptions: ({ navigation }) =>
             {
                 return {
-                    header: <HeaderComponent iname={"chevron-back"}
+                    header: () => <HeaderComponent iname={"chevron-back"}
                     title={"Forgot Password"}
                     back={true} navigation={navigation} />,
-                    gesturesEnabled: false
+                    gestureEnabled: false
                 }
             }
         },
         Home: {
             screen: Home,
-            navigationOptions: { header: null, gesturesEnabled: false }
+            navigationOptions: { headerShown: false, gestureEnabled: false }
         },
         PasswordChange: {
             screen: PasswordChange,
-            navigationOptions: { header: null, gesturesEnabled: false }
+            navigationOptions: { headerShown: false, gestureEnabled: false }
         },
         PasswordReset:{
             screen: PasswordReset,
-            navigationOptions: { header: null, gesturesEnabled: false }
+            navigationOptions: { headerShown: false, gestureEnabled: false }
         },
         Login: {
             screen: Login,
-            navigationOptions: { header: null, gesturesEnabled: false }
+            navigationOptions: { headerShown: false, gestureEnabled: false }
         },
        
         NoInternet: {
             screen: NoInternet,
-            navigationOptions: { header: null, gesturesEnabled: false }
+            navigationOptions: { headerShown: false, gestureEnabled: false }
         },
         ResetPassword:{
             screen: ResetPassword,
             navigationOptions: ({ navigation }) =>
             {
                 return {
-                    header: <HeaderComponent iname={"chevron-back"}
+                    header: () => <HeaderComponent iname={"chevron-back"}
                     title={"Reset Password"}
                     back={true} navigation={navigation} />,
-                    gesturesEnabled: false
+                    gestureEnabled: false
                 }
             }
         },
@@ -83,10 +85,10 @@ const RNApp = createStackNavigator(
             navigationOptions: ({ navigation }) =>
             {
                 return {
-                    header: <HeaderComponent iname={"chevron-back"}
+                    header: () => <HeaderComponent iname={"chevron-back"}
                     title={"Profile Photo"}
                     back={true} navigation={navigation} />,
-                    gesturesEnabled: false
+                    gestureEnabled: false
                 }
             }
         },
@@ -95,10 +97,10 @@ const RNApp = createStackNavigator(
             navigationOptions: ({ navigation }) =>
             {
                 return {
-                    header: <HeaderComponent iname={"chevron-back"}
+                    header: () => <HeaderComponent iname={"chevron-back"}
                     title={"Orders"}
                     back={true} navigation={navigation}/>,
-                    gesturesEnabled: false
+                    gestureEnabled: false
                 }
             }
         },
@@ -107,10 +109,10 @@ const RNApp = createStackNavigator(
             navigationOptions: ({ navigation }) =>
             {
                 return {
-                    header: <HeaderComponent iname={"chevron-back"}
+                    header: () => <HeaderComponent iname={"chevron-back"}
                     title={"Orders"}
                     back={true} navigation={navigation}/>,
-                    gesturesEnabled: false
+                    gestureEnabled: false
                 }
             }
         },
@@ -119,9 +121,9 @@ const RNApp = createStackNavigator(
             navigationOptions: ({ navigation }) =>
             {
                 return {
-                    header: <HeaderComponent iname={"ios-menu"} 
-                    sidemenu={true} title={"Dashboard"} /> ,
-                    gesturesEnabled: false
+                    header: () => <HeaderComponent iname={"ios-menu"} 
+                    sidemenu={true} title={"Dashboard"} />,
+                    gestureEnabled: false
                 }
             }
         },
@@ -129,7 +131,7 @@ const RNApp = createStackNavigator(
             screen: WebView,
             navigationOptions: ({ navigation }) =>
             {
-                return {  header: null,gesturesEnabled: false }
+                return {  headerShown: false,gestureEnabled: false }
             }
         }
     },

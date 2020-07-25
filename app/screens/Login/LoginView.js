@@ -80,14 +80,14 @@ class LoginView extends Component {
     let password = this.state.password;
     let cenv = await AsyncStorage.getItem('environment');
     if(username == "ChangeData:com"){
-      await AsyncStorage.setItem('environment','https://www..com');
+      await AsyncStorage.setItem('environment','https://www.thedailymeat.com');
       this.setState({ ShowEnvMsg: true,CurrentEnv:".com" });
     }else if(username == "ChangeData:testlink"){
       await AsyncStorage.setItem('environment','http://www.thedailymeat.com');
       this.setState({ ShowEnvMsg: true,CurrentEnv:".testlink" });
     }
     else if(username == "ChangeData:stage"){
-      await AsyncStorage.setItem('environment','http://localhos:3000');
+      await AsyncStorage.setItem('environment','http://localhost:3000');
       this.setState({ ShowEnvMsg: true,CurrentEnv:".stage" });
     }
     else{
