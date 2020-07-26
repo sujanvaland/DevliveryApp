@@ -36,16 +36,8 @@ function* loginAsync(action) {
         yield call(navigationActions.navigateToDashboard);
         yield put(loginActions.disableLoader({}));   
     } else {
-        if(response.Message === "Please Verify Your Account."){
-          let obj={ username: action.username };
-          navigationActions.navigateToAccountVerification(obj);
-          //yield call(navigationActions.navigateToAccountVerification);
-        }
-        else{
           yield put(loginActions.loginFailed(response));
-          yield put(loginActions.disableLoader({})); 
-        }
-        
+          yield put(loginActions.disableLoader({}));  
     }
 }
 
@@ -56,7 +48,7 @@ function* logoutAsync(){
   navigationActions.navigateToLogin();
 }
 
-_storeData = async (key,value) => {
+const _storeData = async (key,value) => {
   try {
     await AsyncStorage.setItem(key, value);
     return value;

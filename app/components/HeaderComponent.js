@@ -101,7 +101,6 @@ class HeaderComponent extends Component{
     let customerfirstname = await this._retrieveData("customerfirstname");
     let customerlastname = await this._retrieveData("customerlastname");
     let customerimage = await this._retrieveData("customerimage");
-    //console.log(customerguid);
     this.setState({
       customerguid: customerguid,
       customerfirstname: customerfirstname,
