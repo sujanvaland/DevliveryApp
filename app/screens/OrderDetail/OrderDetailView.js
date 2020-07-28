@@ -72,11 +72,15 @@ render() {
             }
 
             cartItems.push(
-              <View key={item.id} style={[OrderDetailStyles.flexBox,OrderDetailStyles.borderBottom,OrderDetailStyles.itemBox]}>
+              <View key={item.id}>
+              <View  style={[OrderDetailStyles.flexBox,OrderDetailStyles.itemBox]}>
                 <Text style={[OrderDetailStyles.itemText , OrderDetailStyles.itemName]}>{item.productname}</Text>
                 <Text style={[OrderDetailStyles.itemText , OrderDetailStyles.itemQty]}>{'\u20B9'}{""}{item.unitprice} X {item.qty}</Text>
                 <Text style={[OrderDetailStyles.itemText , OrderDetailStyles.itemPrice]}>{'\u20B9'}{""}{item.pprice}</Text>
-              </View>)
+              </View>
+              <View style={OrderDetailStyles.borderDashed}></View>
+              </View>
+              )
           })
           ordertotal = totalPrice;
         }

@@ -50,13 +50,13 @@ const MyOrdersStyles = StyleSheet.create({
     flexBox:{
         display:'flex',
         flexDirection:"row",
-        justifyContent:'space-between'
+        justifyContent:'space-between',
+        flexWrap:'wrap'
     },
     title:{
         color:color.COLOR_PRIMARY,
         fontSize:Typography.FONT_SIZE,
         fontFamily:Typography.FONT_REGULAR,
-        
     },
     subtitle:{
         color:color.COLOR_DARKGRAY,
@@ -84,7 +84,19 @@ const MyOrdersStyles = StyleSheet.create({
         backgroundColor:color.COLOR_PRIMARY,
         paddingVertical:viewportWidth*0.02,
         paddingHorizontal:viewportWidth*0.055,
-        borderRadius:viewportWidth*0.013
+        borderRadius:viewportWidth*0.013,
+        justifyContent:'flex-end',
+       display:'flex' 
+    },
+    buttonWidth:{
+        position:'relative',
+        height:45,
+        width:'100%'
+    },
+    
+    greenBtn:{
+       position:'absolute',
+       right:0
     },
     btnBottom:{
         alignItems:'center',
@@ -112,6 +124,7 @@ const MyOrdersStyles = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'center',
         alignItems:'center',
+        flexWrap:'wrap',
         marginTop:viewportWidth*0.02
     }
 });

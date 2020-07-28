@@ -87,9 +87,11 @@ class MyOrdersView extends Component {
                   <Text style={MyOrdersStyles.date}>{this.getParsedDate(order.orderdate)}</Text>
               </View>
               <View style={MyOrdersStyles.rightContent}>
-                  <TouchableOpacity onPress={() => this.navigateToOrderDetail(order)} style={MyOrdersStyles.greenBtn}>
-                    <Text style={MyOrdersStyles.btnText}>View Detail</Text>
-                  </TouchableOpacity>
+                  <View style={MyOrdersStyles.buttonWidth}>
+                    <TouchableOpacity onPress={() => this.navigateToOrderDetail(order)} style={MyOrdersStyles.greenBtn}>
+                      <Text style={MyOrdersStyles.btnText}>View Detail</Text>
+                    </TouchableOpacity>
+                  </View>
                   <View style={MyOrdersStyles.locationContent}>
                       <Image style={MyOrdersStyles.locationImg} source={require('../../assets/img/location_green.png')} resizeMode="contain" /> 
                     <Text style={MyOrdersStyles.locationText}>{order.locality}, {order.city}</Text>

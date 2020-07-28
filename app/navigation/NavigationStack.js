@@ -16,9 +16,6 @@ import PasswordChange from '../screens/PasswordChange';
 import PasswordReset from '../screens/PasswordReset';
 import MyOrders from '../screens/MyOrders';
 import OrderDetail from '../screens/OrderDetail';
-
-
-
 import { HeaderComponent } from 'app/components';
 
 const AuthStack = createStackNavigator({         
@@ -49,24 +46,55 @@ const RNApp = createStackNavigator(
         },
         Home: {
             screen: Home,
-            navigationOptions: { headerShown: false, gestureEnabled: false }
+            navigationOptions: ({ navigation }) =>
+            {
+                return {
+                    header: () => null,
+                    gestureEnabled: false
+                }
+            }
         },
         PasswordChange: {
             screen: PasswordChange,
-            navigationOptions: { headerShown: false, gestureEnabled: false }
+           
+            navigationOptions: ({ navigation }) =>
+            {
+                return {
+                    header: () => null,
+                    gestureEnabled: false
+                }
+            }
         },
         PasswordReset:{
             screen: PasswordReset,
-            navigationOptions: { headerShown: false, gestureEnabled: false }
+            navigationOptions: ({ navigation }) =>
+            {
+                return {
+                    header: () => null,
+                    gestureEnabled: false
+                }
+            }
         },
         Login: {
             screen: Login,
-            navigationOptions: { headerShown: false, gestureEnabled: false }
+            navigationOptions: ({ navigation }) =>
+            {
+                return {
+                    header: () => null,
+                    gestureEnabled: false
+                }
+            }
         },
        
         NoInternet: {
             screen: NoInternet,
-            navigationOptions: { headerShown: false, gestureEnabled: false }
+            navigationOptions: ({ navigation }) =>
+            {
+                return {
+                    header: () => null,
+                    gestureEnabled: false
+                }
+            }
         },
         ResetPassword:{
             screen: ResetPassword,
@@ -131,7 +159,10 @@ const RNApp = createStackNavigator(
             screen: WebView,
             navigationOptions: ({ navigation }) =>
             {
-                return {  headerShown: false,gestureEnabled: false }
+                return {
+                    header: () => null,
+                    gestureEnabled: false
+                }
             }
         }
     },
@@ -139,17 +170,17 @@ const RNApp = createStackNavigator(
         initialRouteName: 'Login'
     } 
 );
-//export default createAppContainer(RNApp);
+export default createAppContainer(RNApp);
 
-export default createAppContainer(
-    createSwitchNavigator(
-      {
-        AuthLoading: AuthLoadingScreen,
-        App: RNApp,
-        Auth: AuthStack,
-      },
-      {
-        initialRouteName: 'AuthLoading',
-      }
-    )
-  );
+// export default createAppContainer(
+//     createSwitchNavigator(
+//       {
+//         AuthLoading: AuthLoadingScreen,
+//         App: RNApp,
+//         Auth: AuthStack,
+//       },
+//       {
+//         initialRouteName: 'AuthLoading',
+//       }
+//     )
+//   );
