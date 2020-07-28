@@ -15,6 +15,7 @@ import Geolocation from 'react-native-geolocation-service';
 import Geocoder from 'react-native-geocoding';
 import { lessThan } from 'react-native-reanimated';
 import ApiConstants from '../../api/ApiConstants';
+
 Geocoder.init(ApiConstants.GOOGLEAPIKEY); 
 class AddressView extends Component {
   constructor(props) {

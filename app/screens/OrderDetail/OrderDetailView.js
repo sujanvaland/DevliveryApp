@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { get } from 'lodash';
-import { View, Text, Image, TouchableOpacity,ScrollView} from 'react-native';
+import { View, Text, Image, TouchableOpacity,ScrollView,PermissionsAndroid} from 'react-native';
 import { OverlayActivityIndicatorElement } from "../../components";
 import OrderDetailStyles from './OrderDetailStyles';
 import globalStyles from '../../assets/css/globalStyles';
@@ -8,8 +8,10 @@ import PropTypes from 'prop-types';
 import Resource_EN from '../../config/Resource_EN';
 import ApiConstants from '../../api/ApiConstants';
 import * as navigationActions from 'app/actions/navigationActions';
-
-
+import getDirections from 'react-native-google-maps-directions'
+import Geolocation from 'react-native-geolocation-service';
+import Geocoder from 'react-native-geocoding';
+Geocoder.init(ApiConstants.GOOGLEAPIKEY); 
 
 class OrderDetailView extends Component {
   constructor(props) {
@@ -17,8 +19,18 @@ class OrderDetailView extends Component {
     this.state = {
       count: 0,
       ordertotal : 0,
-      products:[]
+      products:[],
+      region: {
+        latitude: 72.81,
+        longitude: 20.19,
+        latitudeDelta: 5,
+        longitudeDelta: 5
+      }
     }
+  }
+
+  async componentDidMount() {
+    this.getCurrentLocation();
   }
 
 getOrderStatus(id){
@@ -64,6 +76,72 @@ navigateToAddress = () =>{
     }
   }
 }
+
+async getCurrentLocation(){
+  const granted = await PermissionsAndroid.request(
+    PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+    {
+      title: 'Location Permission',
+      message: 'TheDailyMeat needs access to your location for faster delivery',
+      buttonNeutral: 'Ask Me Later',
+      buttonNegative: 'Cancel',
+      buttonPositive: 'OK',
+    },
+  );
+
+  if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+    Geolocation.getCurrentPosition(
+      async (position) => {
+            await this.setState({
+                region: {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                    latitudeDelta: 0.0532,
+                    longitudeDelta: 0.0521,
+                }
+            });
+        },
+        (error) => {
+            console.warn(error.code, error.message);
+        },
+        {enableHighAccuracy: true, timeout: 20000},
+    )
+  }
+}
+
+handleGetDirections = () => {
+  const { myorders,orderid } = this.props;
+  let orderdetail = {};
+  if(myorders){
+    orderdetail = myorders.filter(order=>order.id == orderid);
+  
+    if(orderdetail.length > 0){
+      const data = {
+        source: {
+         latitude: this.state.region.latitude,
+         longitude: this.state.region.longitude
+       },
+       destination: {
+         latitude: parseFloat(orderdetail[0].latitude),
+         longitude: parseFloat(orderdetail[0].longitude)
+       },
+       params: [
+         {
+           key: "travelmode",
+           value: "driving"        // may be "walking", "bicycling" or "transit" as well
+         },
+         {
+           key: "dir_action",
+           value: "navigate"       // this instantly initializes navigation using the given travel mode
+         }
+       ]
+     }
+     getDirections(data)
+    }
+  }
+  
+}
+
 render() {
 
     const { button } = Resource_EN;
@@ -135,7 +213,7 @@ render() {
                               }</Text>
                     </View>
                      <View style={OrderDetailStyles.rightContent}>
-                       <TouchableOpacity onPress={() => this.navigateToAddress()}>
+                       <TouchableOpacity onPress={this.handleGetDirections}>
                         <Image style={OrderDetailStyles.locationImage} source={require('../../assets/img/location_large.png')} resizeMode="contain" /> 
                        </TouchableOpacity>
                      </View>
