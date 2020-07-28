@@ -384,7 +384,7 @@ const styles = StyleSheet.create({
     alignItems:"center",
     overflow:'visible',
     borderBottomWidth:0,
-    position:"relative"
+    position:"relative",
   },
   headerbgGreen:{
     backgroundColor: color.COLOR_PRIMARY,

@@ -108,11 +108,7 @@ const OrderDetailStyles = StyleSheet.create({
         paddingHorizontal:viewportWidth*0.04,
         justifyContent:'space-around'
     },
-    borderBottom:{
-        borderBottomWidth:1,
-        borderStyle:"dotted",
-        borderBottomColor:color.COLOR_GREY
-    },
+    
     itemName:{
         color:color.COLOR_DARKGRAY,
         fontSize:Typography.FONT_SIZE12,
@@ -150,7 +146,21 @@ const OrderDetailStyles = StyleSheet.create({
         display:'flex',
         flexWrap:'wrap',
         textAlign:'right'
-    }
+    },
+    borderDashed:{
+        width: viewportWidth - viewportWidth*0.15,
+        height: 0,
+        borderStyle: 'dashed',
+        borderWidth: .8,
+        opacity:.5,
+        borderColor: color.COLOR_GREY,
+        borderRadius : 1,
+        marginBottom:5,
+        justifyContent:'center',
+        display:'flex',
+        alignItems:'center',
+        alignSelf:'center'
+      },
 });
 
 export default OrderDetailStyles;

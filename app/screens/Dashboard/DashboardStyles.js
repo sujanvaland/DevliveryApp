@@ -14,7 +14,11 @@ const DashboardStyles = StyleSheet.create({
     },
     containerImg:{
         width:viewportWidth*0.3,
-        height:viewportWidth*0.3
+        height:viewportWidth*0.3,
+    },
+    containerBox:{
+        alignItems:'center',
+        display:'flex',
     },
     lineImg:{
         width:viewportWidth - viewportWidth*0.2

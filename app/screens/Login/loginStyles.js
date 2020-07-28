@@ -16,7 +16,7 @@ const loginStyles = StyleSheet.create({
         marginTop: viewportWidth* 0.042 
     },
     loginView:{
-        position:"relative"
+        position:"relative",
     },
     loginBg:{
         position:"absolute",
