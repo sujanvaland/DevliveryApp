@@ -16,6 +16,7 @@ import PasswordChange from '../screens/PasswordChange';
 import PasswordReset from '../screens/PasswordReset';
 import MyOrders from '../screens/MyOrders';
 import OrderDetail from '../screens/OrderDetail';
+import Address from '../screens/Address';
 
 
 
@@ -63,7 +64,6 @@ const RNApp = createStackNavigator(
             screen: Login,
             navigationOptions: { headerShown: false, gestureEnabled: false }
         },
-       
         NoInternet: {
             screen: NoInternet,
             navigationOptions: { headerShown: false, gestureEnabled: false }
@@ -133,6 +133,10 @@ const RNApp = createStackNavigator(
             {
                 return {  headerShown: false,gestureEnabled: false }
             }
+        },
+        Address: {
+            screen: Address,
+            navigationOptions: { headerShown: false, gestureEnabled: false }
         }
     },
     {

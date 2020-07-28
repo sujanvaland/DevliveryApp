@@ -66,14 +66,20 @@ class MyOrdersView extends Component {
  
   render() {
     const {button} =Resource_EN;
-    const { myorders,loading } = this.props;
+    const { myorders,loading,statusid } = this.props;
     let myordersArr = [];
     let filteredOrders = [];
 
     if(myorders){
-
-      //filteredOrders = myorders.filter(order=> order.orderstatus == this.state.OrderStatus);
-      filteredOrders = myorders;
+      if(statusid == 5){
+        filteredOrders = myorders.filter(order=> order.orderstatus == statusid);
+      }
+      else if(statusid == 1){
+        filteredOrders = myorders.filter(order=> order.orderstatus == 1 || order.orderstatus == 2
+          || order.orderstatus == 3 || order.orderstatus == 4);
+      }else{
+        filteredOrders = myorders;
+      }
      
       filteredOrders.map((order) =>{
         myordersArr.push(

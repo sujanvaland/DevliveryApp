@@ -15,6 +15,9 @@ class DashboardView extends Component {
     super(props); 
   }
  
+  navigateToMyOrder = (statusId)=>{
+    navigationActions.navigateToMyOrders(statusId);
+  }
   
   render() {
    
@@ -22,15 +25,19 @@ class DashboardView extends Component {
         <View style={globalStyles.innerContainer}>
            <View style={DashboardStyles.container}>
               <View style={DashboardStyles.containerBox}>
-                  <Image style={DashboardStyles.containerImg} source={require('../../assets/img/process.png')} resizeMode="contain" /> 
-                  <Text style={DashboardStyles.containerText}>Under Process</Text>
+                  <TouchableOpacity onPress={() => this.navigateToMyOrder(5)}>
+                    <Image style={DashboardStyles.containerImg} source={require('../../assets/img/process.png')} resizeMode="contain" /> 
+                    <Text style={DashboardStyles.containerText}>Under Process</Text>
+                  </TouchableOpacity>
               </View>
               <View style={DashboardStyles.containerBox}>
                  <Image style={DashboardStyles.lineImg} source={require('../../assets/img/lineImg.png')} resizeMode="contain" /> 
               </View>
               <View style={DashboardStyles.containerBox}>
-                  <Image style={DashboardStyles.containerImg} source={require('../../assets/img/deliveryImg.png')} resizeMode="contain" /> 
-                  <Text style={DashboardStyles.containerText}>Under Process</Text>
+                  <TouchableOpacity onPress={() => this.navigateToMyOrder(1)}>
+                    <Image style={DashboardStyles.containerImg} source={require('../../assets/img/deliveryImg.png')} resizeMode="contain" /> 
+                    <Text style={DashboardStyles.containerText}>Completed</Text>
+                  </TouchableOpacity>
               </View>
            </View>
         </View>

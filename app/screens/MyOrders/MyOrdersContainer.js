@@ -44,7 +44,8 @@ class MyOrdersContainer extends Component {
     } 
     
     render() {
-        return <MyOrdersView {...this.props}/>;
+        let statusid = this.props.navigation.state.params;
+        return <MyOrdersView statusid={statusid} {...this.props}/>;
     }
 }
 

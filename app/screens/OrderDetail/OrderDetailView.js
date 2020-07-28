@@ -53,7 +53,17 @@ changeorderstatus = (obj) => {
   navigationActions.navigateToMyOrders();
 }
  
- 
+navigateToAddress = () =>{
+  console.log("navigateToAddress");
+  const { myorders,orderid } = this.props;
+  let orderdetail = {};
+  if(myorders){
+    orderdetail = myorders.filter(order=>order.id == orderid);
+    if(orderdetail.length > 0){
+      navigationActions.navigateToAddress({lat:orderdetail[0].latitude, long:orderdetail[0].longitude});
+    }
+  }
+}
 render() {
 
     const { button } = Resource_EN;
@@ -121,7 +131,9 @@ render() {
                               }</Text>
                     </View>
                      <View style={OrderDetailStyles.rightContent}>
-                       <Image style={OrderDetailStyles.locationImage} source={require('../../assets/img/location_large.png')} resizeMode="contain" /> 
+                       <TouchableOpacity onPress={() => this.navigateToAddress()}>
+                        <Image style={OrderDetailStyles.locationImage} source={require('../../assets/img/location_large.png')} resizeMode="contain" /> 
+                       </TouchableOpacity>
                      </View>
                   </View>
                   <View style={[OrderDetailStyles.addressBox , OrderDetailStyles.flexBox]}>

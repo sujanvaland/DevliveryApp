@@ -31,3 +31,6 @@ export function navigateToMyOrders(params) {
 export function navigateToOrderDetail(params) {
     NavigationService.navigate('OrderDetail', params);
 }
+export function navigateToAddress(params) {
+    NavigationService.navigate('Address', params);
+}
