@@ -22,8 +22,10 @@ class AddressView extends Component {
     this.state={
       loading: true,
       region: {
-        latitude: props.latlong.latitude,
-        longitude: props.latlong.longitude,
+        // latitude: props.latlong.latitude,
+        // longitude: props.latlong.longitude,
+        latitude: 72.81,
+        longitude: 20.19,
         latitudeDelta: 5,
         longitudeDelta: 5
       }
@@ -50,6 +52,7 @@ class AddressView extends Component {
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
       Geolocation.getCurrentPosition(
         async (position) => {
+              console.log(position);
               await this.setState({
                   region: {
                       latitude: position.coords.latitude,
@@ -99,7 +102,6 @@ class AddressView extends Component {
   }
   
   render() {
-    const {addressDetails} = this.state;
     const { loading } = this.props;
     const {button} =Resource_EN
     return (
@@ -107,21 +109,23 @@ class AddressView extends Component {
           {
             get(loading, 'isLoading') && <OverlayActivityIndicatorElement />
           }
-              <MapView
-                  style={[AddressStyles.map,(this.state.mapMinimize) ? AddressStyles.mapHeight : AddressStyles.mapRegular]}
-                  region={this.state.region}
-                  followUserLocation={true}
-                  ref={ref => (this.mapView = ref)}
-                  zoomEnabled={true}
-                  showsUserLocation={true}
-                  initialRegion={this.state.region}
-                  onRegionChangeComplete={this.onRegionChange.bind(this)}>
-                  <MapView.Marker
-                  coordinate={{ "latitude": this.state.region.latitude,   
-                  "longitude": this.state.region.longitude }}
-                  title={"Your Location"}
-                  draggable />
-              </MapView>
+          {
+            <MapView
+                style={[AddressStyles.map,(this.state.mapMinimize) ? AddressStyles.mapHeight : AddressStyles.mapRegular]}
+                region={this.state.region}
+                followUserLocation={true}
+                ref={ref => (this.mapView = ref)}
+                zoomEnabled={true}
+                showsUserLocation={true}
+                initialRegion={this.state.region}
+                onRegionChangeComplete={this.onRegionChange.bind(this)}>
+                <MapView.Marker
+                coordinate={{ "latitude": this.state.region.latitude,   
+                "longitude": this.state.region.longitude }}
+                title={"Your Location"}
+                draggable />
+            </MapView>
+          }
         </View>
 
     );
