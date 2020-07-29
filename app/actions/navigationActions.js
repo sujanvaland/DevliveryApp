@@ -34,3 +34,6 @@ export function navigateToOrderDetail(params) {
 export function navigateToAddress(params) {
     NavigationService.navigate('Address', params);
 }
+export function navigateToPersonalDetail(params) {
+    NavigationService.navigate('PersonalDetail', params);
+}

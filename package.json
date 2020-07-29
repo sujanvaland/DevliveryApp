@@ -24,6 +24,7 @@
     "native-base": "^2.12.2",
     "react": "16.13.1",
     "react-native": "0.63.1",
+    "react-native-datepicker": "^1.7.2",
     "react-native-fs": "^2.16.6",
     "react-native-geocoding": "^0.4.0",
     "react-native-geolocation-service": "^5.0.0",

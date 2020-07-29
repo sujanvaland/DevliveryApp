@@ -17,6 +17,7 @@ import PasswordReset from '../screens/PasswordReset';
 import MyOrders from '../screens/MyOrders';
 import OrderDetail from '../screens/OrderDetail';
 import Address from '../screens/Address';
+import PersonalDetail from '../screens/PersonalDetail';
 import { HeaderComponent } from 'app/components';
 
 const AuthStack = createStackNavigator({         
@@ -152,6 +153,16 @@ const RNApp = createStackNavigator(
                     header: () => <HeaderComponent iname={"ios-menu"} 
                     sidemenu={true} title={"Dashboard"} />,
                     gestureEnabled: false
+                }
+            }
+        },
+        PersonalDetail:{
+            screen: PersonalDetail,
+            navigationOptions: ({ navigation }) =>
+            {
+                return {
+                    header: () => null,
+                    gesturesEnabled: false
                 }
             }
         },
