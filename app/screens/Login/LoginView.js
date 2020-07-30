@@ -79,11 +79,11 @@ class LoginView extends Component {
     let username = this.state.username;
     let password = this.state.password;
     let cenv = await AsyncStorage.getItem('environment');
-    if(username == "ChangeData:com"){
-      await AsyncStorage.setItem('environment','https://www.thedailymeat.com');
-      this.setState({ ShowEnvMsg: true,CurrentEnv:".com" });
+    if(username == "ChangeData:in"){
+      await AsyncStorage.setItem('environment','https://api.thedailymeat.in');
+      this.setState({ ShowEnvMsg: true,CurrentEnv:".in" });
     }else if(username == "ChangeData:testlink"){
-      await AsyncStorage.setItem('environment','http://www.thedailymeat.com');
+      await AsyncStorage.setItem('environment','http://45.35.0.114');
       this.setState({ ShowEnvMsg: true,CurrentEnv:".testlink" });
     }
     else if(username == "ChangeData:stage"){

@@ -6,6 +6,7 @@ import SplashScreen from 'react-native-splash-screen';
 import PropTypes from 'prop-types';
 import Resource_EN from '../../config/Resource_EN';
 import { TextInput ,ScrollView} from 'react-native-gesture-handler';
+import * as navigationActions from 'app/actions/navigationActions';
 
 
 class PasswordChangeView extends Component {
@@ -13,9 +14,10 @@ class PasswordChangeView extends Component {
     super(props);
   }
   
-  componentDidMount() {
-    SplashScreen.hide();
+  navigateToDashboard = () => {
+    navigationActions.navigateToDashboard();
   }
+
   render() {
     const {button} =Resource_EN
     return (
@@ -39,8 +41,8 @@ class PasswordChangeView extends Component {
               <Text style={PasswordChangeStyles.titletext}>Password Changed</Text>
               <Text style={PasswordChangeStyles.Detailtext}>Your Password has been change Successfully</Text>
               <TouchableOpacity  style={PasswordChangeStyles.btnGreen} 
-                onPress={()=>this.submitotp()}>
-                <Text style={PasswordChangeStyles.btnText}>Continue Shopping</Text>
+                onPress={this.navigateToDashboard}>
+                <Text style={PasswordChangeStyles.btnText}>Dashboard</Text>
               </TouchableOpacity>
             </View>
         </View>

@@ -3,10 +3,10 @@
 const ApiConstants = {
     BASE_URL: 'http://api.thedailymeat.in/api',
     LANGUAGE: 'language',
-    SITEURL:'http://thedailymeat.in/',
+    SITEURL:'http://api.thedailymeat.in/',
     AppleAppID:'493554377',
     GooglePackageName:'com.tdmdelivery.tdmdelivery',
-    RatingFallbackUrl : "http://thedailymeat.in/apprating",
+    RatingFallbackUrl : "http://api.thedailymeat.in/apprating",
     PRODUCTIMGPATH : 'uploads/productimage/',
     PROFILEIMGPATH : 'uploads/customerimage/',
     GOOGLEAPIKEY:'AIzaSyAKKEplE__ZhgDZAKSM7-ObelAcBPX0P_M',
@@ -14,9 +14,11 @@ const ApiConstants = {
     LOGINPATH: 'login/deliverystaff_login',
     //ACCOUNTVERIFICATIONPATH:'login/verify_customer',
     FORGOTPASSWORD: 'login/deliverystaff_reset_password',
-    //USERDETAIL:'account/userdetail',
+    ACCOUNTDETAIL:'account/accountdetail',
     PROFILEIMAGE:'account/profileimage',
     UPDATEPROFILEIMAGE :'account/updateprofileimage',
+    UPDATEPERSONALDETAIL : 'account/updatepersonaldetail',
+    CHANGEPASSWORD:'account/ChangePassword',
 
     //Order
     ORDERBYSTAFF:'deliverystaff/orderbystaff',

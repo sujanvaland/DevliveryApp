@@ -9,6 +9,33 @@ const initialState = {
 
 export const accountReducer = createReducer(initialState, {
 
+    [types.GETACCOUNT_RESPONSE](state,action) {
+        return {
+            ...state,
+            accountdetail:action.response
+        };
+    },
+    [types.GETACCOUNT_FAILED](state) {
+        return {
+            ...state
+        };
+    },
+
+    //  Update Personal Detail
+
+    [types.UPDATEPERSONALDETAIL_RESPONSE](state,action) {
+        return {
+            ...state,
+            updatepersonaldetail:action.response
+        };
+    },
+    [types.UPDATEPERSONALDETAILFAILED_RESPONSE](state,action) {
+        return {
+            ...state,
+            updatepersonaldetail:null
+        };
+    },
+
     // Change Password
     [types.CHANGEPASSWORD_RESPONSE](state,action) {
         return {

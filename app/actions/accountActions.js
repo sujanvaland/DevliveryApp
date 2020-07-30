@@ -3,6 +3,25 @@
  */
 import * as types from './types';
 
+export function getAccountDetail() {
+    return {
+        type: types.GETACCOUNT_REQUEST
+    };
+}
+
+export function ongetAccountDetailResponse(response) {
+    return {
+        type: types.GETACCOUNT_RESPONSE,
+        response
+    };
+}
+
+export function getAccountDetailFailed(response) {
+    return {
+        type: types.GETACCOUNT_FAILED,
+        response
+    };
+}
 
 export function loadProfileImageRequest() {
     return {
@@ -20,6 +39,45 @@ export function onProfileImageLoadedResponse(response) {
 export function FailedLoadingProfileImage(response) {
     return {
         type: types.FAILEDLOADINGPROFILEIMAGE_RESPONSE,
+        response
+    };
+}
+
+export function changePasswordRequest(action) {
+    return {
+        type: types.CHANGEPASSWORD_REQUEST,
+        action
+    };
+}
+
+export function onChangePasswordResponse(response) {
+    return {
+        type: types.CHANGEPASSWORD_RESPONSE,
+        response
+    };
+}
+export function onChangePasswordFailedResponse(response) {
+    return {
+        type: types.CHANGEPASSWORDFAILED_RESPONSE,
+        response
+    };
+}
+
+export function updatePersonalDetail(personaldetail) {
+    return {
+        type: types.UPDATEPERSONALDETAIL_REQUEST,
+        personaldetail
+    };
+}
+export function onupdatePersonalDetailResponse(response) {
+    return {
+        type: types.UPDATEPERSONALDETAIL_RESPONSE,
+        response
+    };
+}
+export function onupdatePersonalDetailFailedResponse(response) {
+    return {
+        type: types.UPDATEPERSONALDETAILFAILED_RESPONSE,
         response
     };
 }

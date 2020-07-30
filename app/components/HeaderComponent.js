@@ -94,9 +94,9 @@ class HeaderComponent extends Component {
     this.setState({ isModalVisible: false });
   }
 
-  navigateToEditProfileImage = () => {
-    this.setState({ isModalVisible: !this.state.isModalVisible });
-    navigationActions.navigateToEditProfileImage();
+  navigateToChangePassword=()=>{
+    navigationActions.navigateToChangePassword();
+    this.setState({ isModalVisible: false, myProfile: !this.state.myProfile, personalDetail:false });
   }
 
   async componentDidMount() {
@@ -322,15 +322,10 @@ class HeaderComponent extends Component {
                       <Icon name={"chevron-forward"} style={styles.menuNext} />
                     </TouchableOpacity>
                     <View style={styles.borderDashed}></View>
-                      <TouchableOpacity style={[styles.linkBox, (this.state.tabActive) ? styles.activetabBg : styles.tabBg]} onPress={this.navigateToChangePassword}>
+                      <TouchableOpacity style={[styles.linkBox, (this.state.tabActive) ? styles.activetabBg : styles.tabBg]} 
+                        onPress={this.navigateToChangePassword}>
                         <Image style={styles.listIconKey} source={require('../assets/img/key.png')} resizeMode="contain" />
                         <Text style={styles.listLink}>Change Password</Text>
-                        <Icon name={"chevron-forward"} style={styles.menuNext} />
-                      </TouchableOpacity>
-                      <View style={styles.borderDashed}></View>
-                      <TouchableOpacity style={styles.linkBox} onPress={() => this.navigateToSelectAddress({navigatefrom:'profile'})}>
-                        <Image style={styles.listIcon} source={require('../assets/img/location_link.png')} resizeMode="contain" />
-                        <Text style={styles.listLink}>Manage Address</Text>
                         <Icon name={"chevron-forward"} style={styles.menuNext} />
                       </TouchableOpacity>
                       <View style={styles.borderDashed}></View>
@@ -340,14 +335,6 @@ class HeaderComponent extends Component {
                       <Text style={styles.listLink}>My Orders</Text>
                       <Icon name={"chevron-forward"} style={styles.menuNext} />
                     </TouchableOpacity>
-                    {/* <View style={styles.borderDashed}></View>
-                    <TouchableOpacity style={styles.linkBox} onPress={this.navigateToRateus}>
-                      <Image style={styles.listIconStar} source={require('../assets/img/star.png')}
-                        resizeMode="contain" />
-                      <Text style={styles.listLink}>rate us</Text>
-                      <Icon name={"ios-arrow-forward"} style={styles.menuNext} />
-                    </TouchableOpacity> */}
-
                   </View>
                   <View style={[styles.flexBox,styles.profileSignOut]}>
                    {

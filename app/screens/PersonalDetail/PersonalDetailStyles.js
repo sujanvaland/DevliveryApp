@@ -43,6 +43,9 @@ const PersonalDetailStyles = StyleSheet.create({
       borderInput:{
         borderBottomColor:'transparent'
       },
+      BorderRed:{
+        borderBottomColor:color.COLOR_RED
+      },
       textCase:{
         textTransform:"capitalize"
       },
@@ -157,6 +160,34 @@ const PersonalDetailStyles = StyleSheet.create({
     datepicker:{
       width:'70%',
       backgroundColor:'transparent'
+    },
+    bottomBtn:{
+      display:'flex',
+      flexDirection:'column',
+      justifyContent:"space-between",
+      padding:viewportWidth*0.08
+    },
+    btnDefault:{
+       backgroundColor:color.COLOR_WHITE,
+       borderRadius:viewportWidth*0.01,
+       height:40,
+       width:'100%',
+       marginVertical:viewportWidth*0.02,
+       marginHorizontal:viewportWidth*0.02
+    },
+    btnDefaultText:{
+      fontSize:Typography.FONT_SIZE, 
+      lineHeight:40,
+      textAlign:'center',
+      color:Styles.color.COLOR_BLACK,
+      borderRadius: viewportWidth*0.009,
+      fontFamily:Typography.FONT_REGULAR
+    },
+    btnDefaultYellow:{
+      backgroundColor:color.COLOR_YELLOW
+    },
+    btnDefaultBlack:{
+      backgroundColor:color.COLOR_BLACK
     }
 });
 

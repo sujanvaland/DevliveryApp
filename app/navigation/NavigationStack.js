@@ -12,6 +12,7 @@ import NoInternet from '../screens/NoInternet';
 import Verification from '../screens/Verification';
 import EditProfileImage from '../screens/EditProfileImage';
 import ResetPassword from '../screens/ResetPassword';
+import ChangePassword from '../screens/ChangePassword';
 import PasswordChange from '../screens/PasswordChange';
 import PasswordReset from '../screens/PasswordReset';
 import MyOrders from '../screens/MyOrders';
@@ -56,9 +57,20 @@ const RNApp = createStackNavigator(
                 }
             }
         },
+        ChangePassword:{
+            screen: ChangePassword,
+            navigationOptions: ({ navigation }) =>
+            {
+                return {
+                    header: () => <HeaderComponent iname={"chevron-back"}
+                    title={"Change Password"}
+                    back={true} navigation={navigation} />,
+                    gestureEnabled: false
+                }
+            }
+        },
         PasswordChange: {
             screen: PasswordChange,
-           
             navigationOptions: ({ navigation }) =>
             {
                 return {
@@ -162,7 +174,7 @@ const RNApp = createStackNavigator(
             {
                 return {
                     header: () => null,
-                    gesturesEnabled: false
+                    gestureEnabled: false
                 }
             }
         },

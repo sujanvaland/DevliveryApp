@@ -1,27 +1,56 @@
 import { put, call, select } from 'redux-saga/effects';
 import * as loginActions from 'app/actions/loginActions';
 import * as accountActions from 'app/actions/accountActions';
-import {changePassword,loadProfileImage} from 'app/api/methods/accountDetail';
+import {getAccountDetail,updatePersonalDetail,changePassword,loadProfileImage} from 'app/api/methods/accountDetail';
 import * as navigationActions from 'app/actions/navigationActions';
 
 // Our worker Saga that loads filter
+
+function* getAccountDetailAsync(action) {
+  yield put(loginActions.enableLoader());
+  const response = yield call(getAccountDetail,action);
+  console.log(response);
+  if (response.Message === "success") {
+      yield put(accountActions.ongetAccountDetailResponse(response.results));
+      yield put(loginActions.disableLoader({}));
+  } else {
+      yield put(accountActions.getAccountDetailFailed(response));
+      yield put(loginActions.disableLoader({}));
+  }
+};
+
+// Update Persona Detail
+function* updatePersonalDetailAsync(action) {
+  yield put(loginActions.enableLoader());
+  //how to call api
+  const response = yield call(updatePersonalDetail,action);
+  console.log(response);
+  if (response.Message === "success") {
+      yield put(accountActions.onupdatePersonalDetailResponse(response));
+      yield put(accountActions.getAccountDetail());
+      yield put(loginActions.disableLoader({}));
+  } else {
+      yield put(accountActions.onupdatePersonalDetailFailedResponse(response));
+      yield put(loginActions.disableLoader({}));
+  }
+}
 
 // Change Password
 function* changePasswordAsync(action) {
   yield put(loginActions.enableLoader());
   //how to call api
   const response = yield call(changePassword,action);
-  //console.log(response);
-  if (response.Status === "1") {
-      Alert.alert(
-          'Success',
-          'Change Password Successfully.',
-          [
-            {text: 'OK'},
-          ]
-        );
+  console.log(response);
+  if (response.Message === "success") {
+      // Alert.alert(
+      //     'Success',
+      //     'Change Password Successfully.',
+      //     [
+      //       {text: 'OK'},
+      //     ]
+      //   );
 
-      navigationActions.navigateToSetting();
+      navigationActions.navigateToPasswordChange();
       yield put(accountActions.onChangePasswordResponse(response));
       yield put(loginActions.disableLoader({}));
       //console.log(response);
@@ -71,5 +100,9 @@ _storeData = async (key,value) => {
 };
 
 
-export { changePasswordAsync,
-  loadprofileimageAsync }
+export { 
+  getAccountDetailAsync,
+  updatePersonalDetailAsync,
+  changePasswordAsync,
+  loadprofileimageAsync 
+}

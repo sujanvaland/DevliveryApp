@@ -32,7 +32,7 @@ function* loginAsync(action) {
         _storeData("customerimage",response.results[0].customerimage);
         _storeData("loginuser",action.username);
         _storeData("password",action.password);
-        //yield put(accountActions.loadUserProfileRequest(action.username));
+        yield put(accountActions.getAccountDetail());
         yield call(navigationActions.navigateToDashboard);
         yield put(loginActions.disableLoader({}));   
     } else {

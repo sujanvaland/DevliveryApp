@@ -25,7 +25,7 @@ class DashboardView extends Component {
         <View style={globalStyles.innerContainer}>
            <View style={DashboardStyles.container}>
               <View style={DashboardStyles.containerBox}>
-                  <TouchableOpacity onPress={() => this.navigateToMyOrder(5)}>
+                  <TouchableOpacity onPress={() => this.navigateToMyOrder(1)}>
                     <Image style={DashboardStyles.containerImg} source={require('../../assets/img/process.png')} resizeMode="contain" /> 
                     <Text style={DashboardStyles.containerText}>Under Process</Text>
                   </TouchableOpacity>
@@ -34,7 +34,7 @@ class DashboardView extends Component {
                  <Image style={DashboardStyles.lineImg} source={require('../../assets/img/lineImg.png')} resizeMode="contain" /> 
               </View>
               <View style={DashboardStyles.containerBox}>
-                  <TouchableOpacity onPress={() => this.navigateToMyOrder(1)}>
+                  <TouchableOpacity onPress={() => this.navigateToMyOrder(5)}>
                     <Image style={DashboardStyles.containerImg} source={require('../../assets/img/deliveryImg.png')} resizeMode="contain" /> 
                     <Text style={DashboardStyles.containerText}>Completed</Text>
                   </TouchableOpacity>

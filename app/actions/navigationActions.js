@@ -37,3 +37,9 @@ export function navigateToAddress(params) {
 export function navigateToPersonalDetail(params) {
     NavigationService.navigate('PersonalDetail', params);
 }
+export function navigateToChangePassword(params) {
+    NavigationService.navigate('ChangePassword', params);
+}
+export function navigateToPasswordChange(params) {
+    NavigationService.navigate('PasswordChange', params);
+}
