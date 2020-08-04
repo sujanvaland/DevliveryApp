@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react';
-import { View, Text, Image, TouchableOpacity, StatusBar, TextInput, Dimensions, Platform, ToastAndroid} from 'react-native';
+import { View, Text, Image, TouchableOpacity, StatusBar, TextInput, Dimensions, Platform, ToastAndroid,
+  ScrollView} from 'react-native';
 import PersonalDetailStyles from './PersonalDetailStyles';
 import globalStyles from '../../assets/css/globalStyles';
 import PropTypes from 'prop-types';
@@ -547,181 +548,185 @@ validateEmail = (value) =>
               //allowing light, but not detailed shapes
               networkActivityIndicatorVisible={true}
             />
-           <View style={PersonalDetailStyles.detailContainer}>
-              <TouchableOpacity style={PersonalDetailStyles.backProfileIcon} onPress={() => { this.navigateToDashboard() }}>
-                <Icon name={"ios-arrow-back"} style={PersonalDetailStyles.ProfileIcon} />
-                <Text style={PersonalDetailStyles.backprofile}>My Personal Information</Text>
-              </TouchableOpacity>
-              {
-                !this.state.editDetail &&
-                <TouchableOpacity style={PersonalDetailStyles.penIconBox} onPress={() => { this.onEdit() }}>
-                  <Image style={PersonalDetailStyles.penIcon} source={require('../../assets/img/pen.png')} resizeMode="contain" />
+         
+            <View style={PersonalDetailStyles.detailContainer}>
+                <TouchableOpacity style={PersonalDetailStyles.backProfileIcon} onPress={() => { this.navigateToDashboard() }}>
+                  <Icon name={"ios-arrow-back"} style={PersonalDetailStyles.ProfileIcon} />
+                  <Text style={PersonalDetailStyles.backprofile}>My Personal Information</Text>
                 </TouchableOpacity>
-              }
-              
-                  <View style={PersonalDetailStyles.headrMenu}>
-                    <View style={PersonalDetailStyles.containerImgBox}>
-                      <View style={PersonalDetailStyles.userImgBox}>
-                        {
-                          accountdetail[0].customerimage != '' && accountdetail[0].customerimage != undefined &&
-                          <Image style={PersonalDetailStyles.userImg} source={{ uri: profileImgPath }} resizeMode="contain" />
-                        }
+                {
+                  !this.state.editDetail &&
+                  <TouchableOpacity style={PersonalDetailStyles.penIconBox} onPress={() => { this.onEdit() }}>
+                    <Image style={PersonalDetailStyles.penIcon} source={require('../../assets/img/pen.png')} resizeMode="contain" />
+                  </TouchableOpacity>
+                }
+                
+                    <View style={PersonalDetailStyles.headrMenu}>
+                      <View style={PersonalDetailStyles.containerImgBox}>
+                        <View style={PersonalDetailStyles.userImgBox}>
+                          {
+                            accountdetail[0].customerimage != '' && accountdetail[0].customerimage != undefined &&
+                            <Image style={PersonalDetailStyles.userImg} source={{ uri: profileImgPath }} resizeMode="contain" />
+                          }
 
+                          {
+                            (accountdetail[0].customerimage == '' || accountdetail[0].customerimage == undefined) &&
+                            <Image style={PersonalDetailStyles.userImg} source={require('../../assets/img/user_img.png')} resizeMode="contain" />
+                          }
+                            
+                        </View>
                         {
-                          (accountdetail[0].customerimage == '' || accountdetail[0].customerimage == undefined) &&
-                          <Image style={PersonalDetailStyles.userImg} source={require('../../assets/img/user_img.png')} resizeMode="contain" />
+                          this.state.editDetail &&
+                          <TouchableOpacity style={PersonalDetailStyles.camImgContainer} onPress={this.navigateToEditProfileImage}>
+                              <Image style={PersonalDetailStyles.camImg} source={require('../../assets/img/camara.png')} resizeMode="contain" />
+                          </TouchableOpacity>
                         }
-                          
                       </View>
-                      {
-                        this.state.editDetail &&
-                        <TouchableOpacity style={PersonalDetailStyles.camImgContainer} onPress={this.navigateToEditProfileImage}>
-                            <Image style={PersonalDetailStyles.camImg} source={require('../../assets/img/camara.png')} resizeMode="contain" />
-                        </TouchableOpacity>
-                      }
                     </View>
-                  </View>
-                  <View style={PersonalDetailStyles.profileDetailMenu}>
-                   <View style={PersonalDetailStyles.profileDetail}>
-                     <Text style={PersonalDetailStyles.profileDetailHead}>First Name:</Text>
-                     <TextInput
-                        editable={(this.state.editDetail) ? true : false}
-                        style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,
-                          (this.state.editDetail) ?PersonalDetailStyles.borderInputWhite :PersonalDetailStyles.borderInput,
-                          (this.state.isValidfirstname) ? '' : PersonalDetailStyles.BorderRed ]}
-                        maxLength={30}
-                        isvalidInput={this.state.isValidfirstname}
-                        onEndEditing={() => this.validateInputs("firstname")}
-                        placeholderTextColor='#ffffff'
-                        cursorColor={'#ffffff'}
-                        value={this.state.updateprofile.firstname}
-                        onChangeText={value => this.onValueChange("firstname", value)}
-                      />
-                   </View>
-                   <View style={PersonalDetailStyles.profileDetail}>
-                     <Text style={PersonalDetailStyles.profileDetailHead}>Last Name:</Text>
-                     <TextInput
-                        editable={(this.state.editDetail) ? true : false}
-                        style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,
-                          (this.state.editDetail) ?PersonalDetailStyles.borderInputWhite :PersonalDetailStyles.borderInput,
-                          (this.state.isValidlastname) ? '' : PersonalDetailStyles.BorderRed ]}
-                        maxLength={30}
-                        isvalidInput={this.state.isValidlastname}
-                        onEndEditing={() => this.validateInputs("lastname")}
-                        placeholderTextColor='#ffffff'
-                        cursorColor={'#ffffff'}
-                        value={this.state.updateprofile.lastname}
-                        onChangeText={value => this.onValueChange("lastname", value)}
-                      />
-                   </View>
-                   <View style={PersonalDetailStyles.profileDetail}>
-                     <Text style={PersonalDetailStyles.profileDetailHead}>Birthday:</Text>
-                     <TouchableOpacity
-                        style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,
-                          (this.state.editDetail) ?PersonalDetailStyles.borderInputWhite :PersonalDetailStyles.borderInput,
-                          (this.state.isValidbirthdate) ? '' : PersonalDetailStyles.BorderRed ]}
-                        onPress={() => {this.fRenderDatePicker("date", "isToDatePickerVisible",
-                        (this.state.editDetail) ? "editable" : "");}}>
+                    <View style={PersonalDetailStyles.profileDetailMenu}>
+                    <ScrollView>
+                      <View style={PersonalDetailStyles.profileDetail}>
+                        <Text style={PersonalDetailStyles.profileDetailHead}>First Name:</Text>
                         <TextInput
-                            editable={false}
-                            style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,PersonalDetailStyles.borderInput ]}
+                            editable={(this.state.editDetail) ? true : false}
+                            style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,
+                              (this.state.editDetail) ?PersonalDetailStyles.borderInputWhite :PersonalDetailStyles.borderInput,
+                              (this.state.isValidfirstname) ? '' : PersonalDetailStyles.BorderRed ]}
+                            maxLength={30}
+                            isvalidInput={this.state.isValidfirstname}
+                            onEndEditing={() => this.validateInputs("firstname")}
                             placeholderTextColor='#ffffff'
                             cursorColor={'#ffffff'}
-                            value={birthdate}
-                            isvalidInput={this.state.isValidbirthdate}
-                            onEndEditing={() => this.validateInputs("birthdate")}
-                            onChangeText={value => this.onValueChange("birthdate", value)}
-                        />
-                    </TouchableOpacity>
-                    {this.fRenderDateTimePicker(
-                        this.state.isToDatePickerVisible,
-                        "isToDatePickerVisible",
-                        "date",
-                        this.state.birthdatevalue,
-                        // This is my function, which saves the selected value to my app's state. 
-                        // YOU NEED TO REPLACE IT WITH SOMETHING RELEVANT TO YOUR APP. 
-                        this.saveEndingDate,
-                    )}
-                   </View>
-                   <View style={PersonalDetailStyles.profileDetail}>
-                     <Text style={PersonalDetailStyles.profileDetailHead}>gender:</Text>
-                     {/* <Text style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase]}>male</Text> */}
-                     <TouchableOpacity onPress={this.toggleModal} style={PersonalDetailStyles.modalText} disabled={(this.state.editDetail) ? false : true}>
-                      <TextInput
-                          editable={false}
-                          value={this.state.updateprofile.gender}
-                          style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,PersonalDetailStyles.widthInput,
-                            (this.state.editDetail) ?PersonalDetailStyles.borderInputWhite :PersonalDetailStyles.borderInput,
-                            (this.state.isValidgender) ? '' : PersonalDetailStyles.BorderRed ]}
-                          placeholderTextColor='#ffffff'
-                          value={this.state.updateprofile.gender}
-                          isvalidInput={this.state.isValidgender}
-                        />
-                     </TouchableOpacity>
-                     
-                   </View>
-                   <View style={PersonalDetailStyles.profileDetail}>
-                     <Text style={PersonalDetailStyles.profileDetailHead}>Email:</Text>
-                     {/* <Text style={[PersonalDetailStyles.profileDetailInfo]}>sahinpatel78@gmail.com</Text> */}
-                     <TextInput
-                        editable={(this.state.editDetail) ? true : false}
-                        style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,
-                          (this.state.editDetail) ?PersonalDetailStyles.borderInputWhite :PersonalDetailStyles.borderInput,
-                          (this.state.isValidemail) ? '' : PersonalDetailStyles.BorderRed ]}
-                        maxLength={200}
-                        isvalidInput={this.state.isValidemail}
-                        onEndEditing={() => this.validateInputs("email")}
-                        placeholderTextColor='#ffffff'
-                        value={this.state.updateprofile.email}
-                        onChangeText={value => this.onValueChange("email", value)}
-                      />
-                   </View>
-                   <View style={PersonalDetailStyles.profileDetail}>
-                     <Text style={PersonalDetailStyles.profileDetailHead}>Phone:</Text>
-                     {/* <Text style={[PersonalDetailStyles.profileDetailInfo]}>sahinpatel78@gmail.com</Text> */}
-                     <TextInput
-                        editable={(this.state.editDetail) ? true : false}
-                        style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,
-                          (this.state.editDetail) ? PersonalDetailStyles.borderInputWhite : PersonalDetailStyles.borderInput,
-                          (this.state.isValidphone) ? '' : PersonalDetailStyles.BorderRed ]}
-                        maxLength={10}
-                        isvalidInput={this.state.isValidphone}
-                        onEndEditing={() => this.validateInputs("phone")}
-                        placeholderTextColor='#ffffff'
-                        value={this.state.updateprofile.phone}
-                        onChangeText={value => this.onValueChange("phone", value)}
-                        keyboardType = "phone-pad"
-                      />
-                   </View>
-                   <View style={PersonalDetailStyles.profileDetail}>
-                     <Text style={PersonalDetailStyles.profileDetailHead}>Vehical No:</Text>
-                     <TextInput
-                        editable={(this.state.editDetail) ? true : false}
-                        style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,
-                          (this.state.editDetail) ?PersonalDetailStyles.borderInputWhite :PersonalDetailStyles.borderInput,
-                          (this.state.isValidvehicalno) ? '' : PersonalDetailStyles.BorderRed ]}
-                        maxLength={15}
-                        isvalidInput={this.state.isValidvehicalno}
-                        onEndEditing={() => this.validateInputs("vehicalno")}
-                        placeholderTextColor='#ffffff'
-                        cursorColor={'#ffffff'}
-                        value={this.state.updateprofile.vehicalno}
-                        onChangeText={value => this.onValueChange("vehicalno", value)}
-                      />
-                   </View>
-                   {
-                      this.state.editDetail &&
-                        <View style={PersonalDetailStyles.bottomBtn}>
-                          <TouchableOpacity style={[PersonalDetailStyles.btnDefault,PersonalDetailStyles.btnDefaultYellow]} onPress={() => this.updatepersonaldetails()}>
-                            <Text style={PersonalDetailStyles.btnDefaultText}>Update</Text>
-                          </TouchableOpacity>
-                          <TouchableOpacity style={[PersonalDetailStyles.btnDefault,PersonalDetailStyles.btnDefaultYellow]} onPress={() => this.cancelProfile()}>
-                            <Text style={PersonalDetailStyles.btnDefaultText}>Cancel</Text>
-                          </TouchableOpacity>
-                        </View>
-                    }
-                </View>
-           </View>
+                            value={this.state.updateprofile.firstname}
+                            onChangeText={value => this.onValueChange("firstname", value)}
+                          />
+                      </View>
+                      <View style={PersonalDetailStyles.profileDetail}>
+                        <Text style={PersonalDetailStyles.profileDetailHead}>Last Name:</Text>
+                        <TextInput
+                            editable={(this.state.editDetail) ? true : false}
+                            style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,
+                              (this.state.editDetail) ?PersonalDetailStyles.borderInputWhite :PersonalDetailStyles.borderInput,
+                              (this.state.isValidlastname) ? '' : PersonalDetailStyles.BorderRed ]}
+                            maxLength={30}
+                            isvalidInput={this.state.isValidlastname}
+                            onEndEditing={() => this.validateInputs("lastname")}
+                            placeholderTextColor='#ffffff'
+                            cursorColor={'#ffffff'}
+                            value={this.state.updateprofile.lastname}
+                            onChangeText={value => this.onValueChange("lastname", value)}
+                          />
+                      </View>
+                      <View style={PersonalDetailStyles.profileDetail}>
+                        <Text style={PersonalDetailStyles.profileDetailHead}>Birthday:</Text>
+                        <TouchableOpacity
+                            style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,
+                              (this.state.editDetail) ?PersonalDetailStyles.borderInputWhite :PersonalDetailStyles.borderInput,
+                              (this.state.isValidbirthdate) ? '' : PersonalDetailStyles.BorderRed ]}
+                            onPress={() => {this.fRenderDatePicker("date", "isToDatePickerVisible",
+                            (this.state.editDetail) ? "editable" : "");}}>
+                            <TextInput
+                                editable={false}
+                                style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,PersonalDetailStyles.borderInput ]}
+                                placeholderTextColor='#ffffff'
+                                cursorColor={'#ffffff'}
+                                value={birthdate}
+                                isvalidInput={this.state.isValidbirthdate}
+                                onEndEditing={() => this.validateInputs("birthdate")}
+                                onChangeText={value => this.onValueChange("birthdate", value)}
+                            />
+                        </TouchableOpacity>
+                        {this.fRenderDateTimePicker(
+                            this.state.isToDatePickerVisible,
+                            "isToDatePickerVisible",
+                            "date",
+                            this.state.birthdatevalue,
+                            // This is my function, which saves the selected value to my app's state. 
+                            // YOU NEED TO REPLACE IT WITH SOMETHING RELEVANT TO YOUR APP. 
+                            this.saveEndingDate,
+                        )}
+                      </View>
+                      <View style={PersonalDetailStyles.profileDetail}>
+                        <Text style={PersonalDetailStyles.profileDetailHead}>gender:</Text>
+                        {/* <Text style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase]}>male</Text> */}
+                        <TouchableOpacity onPress={this.toggleModal} style={PersonalDetailStyles.modalText} disabled={(this.state.editDetail) ? false : true}>
+                          <TextInput
+                              editable={false}
+                              value={this.state.updateprofile.gender}
+                              style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,PersonalDetailStyles.widthInput,
+                                (this.state.editDetail) ?PersonalDetailStyles.borderInputWhite :PersonalDetailStyles.borderInput,
+                                (this.state.isValidgender) ? '' : PersonalDetailStyles.BorderRed ]}
+                              placeholderTextColor='#ffffff'
+                              value={this.state.updateprofile.gender}
+                              isvalidInput={this.state.isValidgender}
+                            />
+                        </TouchableOpacity>
+                        
+                      </View>
+                      <View style={PersonalDetailStyles.profileDetail}>
+                        <Text style={PersonalDetailStyles.profileDetailHead}>Email:</Text>
+                        {/* <Text style={[PersonalDetailStyles.profileDetailInfo]}>sahinpatel78@gmail.com</Text> */}
+                        <TextInput
+                            editable={(this.state.editDetail) ? true : false}
+                            style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,
+                              (this.state.editDetail) ?PersonalDetailStyles.borderInputWhite :PersonalDetailStyles.borderInput,
+                              (this.state.isValidemail) ? '' : PersonalDetailStyles.BorderRed ]}
+                            maxLength={200}
+                            isvalidInput={this.state.isValidemail}
+                            onEndEditing={() => this.validateInputs("email")}
+                            placeholderTextColor='#ffffff'
+                            value={this.state.updateprofile.email}
+                            onChangeText={value => this.onValueChange("email", value)}
+                          />
+                      </View>
+                      <View style={PersonalDetailStyles.profileDetail}>
+                        <Text style={PersonalDetailStyles.profileDetailHead}>Phone:</Text>
+                        {/* <Text style={[PersonalDetailStyles.profileDetailInfo]}>sahinpatel78@gmail.com</Text> */}
+                        <TextInput
+                            editable={(this.state.editDetail) ? true : false}
+                            style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,
+                              (this.state.editDetail) ? PersonalDetailStyles.borderInputWhite : PersonalDetailStyles.borderInput,
+                              (this.state.isValidphone) ? '' : PersonalDetailStyles.BorderRed ]}
+                            maxLength={10}
+                            isvalidInput={this.state.isValidphone}
+                            onEndEditing={() => this.validateInputs("phone")}
+                            placeholderTextColor='#ffffff'
+                            value={this.state.updateprofile.phone}
+                            onChangeText={value => this.onValueChange("phone", value)}
+                            keyboardType = "phone-pad"
+                          />
+                      </View>
+                      <View style={PersonalDetailStyles.profileDetail}>
+                        <Text style={PersonalDetailStyles.profileDetailHead}>Vehical No:</Text>
+                        <TextInput
+                            editable={(this.state.editDetail) ? true : false}
+                            style={[PersonalDetailStyles.profileDetailInfo,PersonalDetailStyles.textCase,
+                              (this.state.editDetail) ?PersonalDetailStyles.borderInputWhite :PersonalDetailStyles.borderInput,
+                              (this.state.isValidvehicalno) ? '' : PersonalDetailStyles.BorderRed ]}
+                            maxLength={15}
+                            isvalidInput={this.state.isValidvehicalno}
+                            onEndEditing={() => this.validateInputs("vehicalno")}
+                            placeholderTextColor='#ffffff'
+                            cursorColor={'#ffffff'}
+                            value={this.state.updateprofile.vehicalno}
+                            onChangeText={value => this.onValueChange("vehicalno", value)}
+                          />
+                      </View>
+                        {
+                          this.state.editDetail &&
+                            <View style={PersonalDetailStyles.bottomBtn}>
+                              <TouchableOpacity style={[PersonalDetailStyles.btnDefault,PersonalDetailStyles.btnDefaultYellow]} onPress={() => this.updatepersonaldetails()}>
+                                <Text style={PersonalDetailStyles.btnDefaultText}>Update</Text>
+                              </TouchableOpacity>
+                              <TouchableOpacity style={[PersonalDetailStyles.btnDefault,PersonalDetailStyles.btnDefaultYellow]} onPress={() => this.cancelProfile()}>
+                                <Text style={PersonalDetailStyles.btnDefaultText}>Cancel</Text>
+                              </TouchableOpacity>
+                            </View>
+                        }
+                    </ScrollView> 
+                  </View>
+            </View>
+           
 
            <Modal onBackdropPress={() => this.closeModal()}
             isVisible={this.state.isModalVisible}

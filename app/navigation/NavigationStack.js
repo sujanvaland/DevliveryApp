@@ -194,7 +194,7 @@ const RNApp = createStackNavigator(
         }
     },
     {
-        initialRouteName: 'Login'
+        initialRouteName: "Dashboard"
     } 
 );
 //export default createAppContainer(RNApp);

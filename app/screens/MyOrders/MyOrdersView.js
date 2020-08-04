@@ -6,17 +6,36 @@ import MyOrdersStyles from './MyOrdersStyles';
 import globalStyles from '../../assets/css/globalStyles';
 import PropTypes from 'prop-types';
 import Resource_EN from '../../config/Resource_EN';
+import Modal from "react-native-modal";
 import * as navigationActions from 'app/actions/navigationActions';
-
+import { Icon ,ListItem,Radio} from 'native-base';
 
 class MyOrdersView extends Component {
   constructor(props) {
     super(props); 
     this.state={
-      isRefreshing:false
+      isRefreshing:false,
+      filter:'First',
+      filterModal:false,
+      sortModal:false
     }
   }
-
+  closeModal = () => {
+    this.setState({ isModalVisible: false });
+  }
+  selectFilter= (value) => {
+    this.setState({filter : value});
+    this.setState({ isModalVisible: !this.state.isModalVisible });
+  }
+  toggleModal=(fieldName)=>{
+    this.setState({ isModalVisible: !this.state.isModalVisible });
+    if(fieldName == "Sort"){
+      this.setState({filterModal : true , sortModal : false});
+    }
+    if(fieldName == "Filter"){
+      this.setState({sortModal : true , filterModal : false});
+    }
+  }
   navigateToOrderDetail = (order) => {
     navigationActions.navigateToOrderDetail(order.id);
   }
@@ -115,12 +134,12 @@ class MyOrdersView extends Component {
             get(loading, 'isLoading') && <OverlayActivityIndicatorElement />
           }
           <View style={MyOrdersStyles.tabHeader}>
-                <TouchableOpacity   style={[MyOrdersStyles.tabBox]}>
+                <TouchableOpacity onPress={() => this.toggleModal('Sort')}  style={[MyOrdersStyles.tabBox]}>
                    <Image style={MyOrdersStyles.sortImg} source={require('../../assets/img/sort.png')} resizeMode="contain" /> 
                    <Text style={MyOrdersStyles.tabText}>Sort</Text>
                 </TouchableOpacity>
                 <View style={MyOrdersStyles.border}></View>
-                <TouchableOpacity   style={[MyOrdersStyles.tabBox]}>
+                <TouchableOpacity  onPress={() => this.toggleModal('Filter')} style={[MyOrdersStyles.tabBox]}>
                    <Image style={MyOrdersStyles.sortImg} source={require('../../assets/img/filter.png')} resizeMode="contain" /> 
                    <Text style={MyOrdersStyles.tabText}>Filter</Text>
                 </TouchableOpacity>
@@ -141,6 +160,56 @@ class MyOrdersView extends Component {
                   }
               </ScrollView>
           </View>
+          <Modal onBackdropPress={() => this.closeModal()}
+            isVisible={this.state.isModalVisible}
+            onBackButtonPress={() => this.closeModal()}>
+              {
+                this.state.filterModal &&
+                <View style={[MyOrdersStyles.modalDocument]}>
+                  <View style={MyOrdersStyles.listRadio}>
+                  <Text style={MyOrdersStyles.titleText}>Filter Options</Text>
+                      <ListItem style={[MyOrdersStyles.radioList]}
+                          onPress={() => this.selectFilter('First')}>
+                          <Radio style={MyOrdersStyles.radioListButton}
+                            onPress={() => this.selectFilter('First')}
+                            selected={this.state.filter== 'First'}
+                            color={"#bbb"} selectedColor={"#009846"} />
+                          <Text style={[MyOrdersStyles.radioListText, MyOrdersStyles.radioTextWidth]}>First Item</Text>
+                      </ListItem>
+                      <ListItem style={MyOrdersStyles.radioList}
+                          onPress={() => this.selectFilter('Second')}>
+                          <Radio style={MyOrdersStyles.radioListButton}
+                            onPress={() => this.selectFilter('Second')}
+                            selected={this.state.filter== 'Second'} color={"#bbb"} selectedColor={"#009846"} />
+                          <Text style={[MyOrdersStyles.radioListText, MyOrdersStyles.radioTextWidth]}>Second Item</Text>
+                      </ListItem>
+                  </View>
+                </View>
+              }
+              {
+                this.state.sortModal &&
+                <View style={[MyOrdersStyles.modalDocument]}>
+                  <View style={MyOrdersStyles.listRadio}>
+                  <Text style={MyOrdersStyles.titleText}>Sort Options</Text>
+                      <ListItem style={[MyOrdersStyles.radioList]}
+                          onPress={() => this.selectFilter('First')}>
+                          <Radio style={MyOrdersStyles.radioListButton}
+                            onPress={() => this.selectFilter('First')}
+                            selected={this.state.filter== 'First'}
+                            color={"#bbb"} selectedColor={"#009846"} />
+                          <Text style={[MyOrdersStyles.radioListText, MyOrdersStyles.radioTextWidth]}>First Item</Text>
+                      </ListItem>
+                      <ListItem style={MyOrdersStyles.radioList}
+                          onPress={() => this.selectFilter('Second')}>
+                          <Radio style={MyOrdersStyles.radioListButton}
+                            onPress={() => this.selectFilter('Second')}
+                            selected={this.state.filter== 'Second'} color={"#bbb"} selectedColor={"#009846"} />
+                          <Text style={[MyOrdersStyles.radioListText, MyOrdersStyles.radioTextWidth]}>Second Item</Text>
+                      </ListItem>
+                  </View>
+                </View>
+              }
+          </Modal>
         </View>
       
     );

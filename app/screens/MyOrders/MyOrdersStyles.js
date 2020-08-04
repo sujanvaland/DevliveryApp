@@ -126,7 +126,52 @@ const MyOrdersStyles = StyleSheet.create({
         alignItems:'center',
         flexWrap:'wrap',
         marginTop:viewportWidth*0.02
-    }
+    },
+    modalDocument:{
+        backgroundColor:color.COLOR_WHITE,
+        borderRadius:viewportWidth*0.018,
+        marginVertical:viewportWidth*0.1
+      },
+      radioList:{
+        width:'100%',
+        borderBottomWidth:0,
+        paddingLeft:0,
+        marginLeft:0,
+        paddingTop:0,
+        paddingBottom:0,
+        marginTop:viewportWidth*0.013,
+        marginBottom:viewportWidth*0.013
+      },
+      radioListButton:{
+        marginRight:5,
+        paddingLeft:0,
+        marginLeft:0,
+        paddingTop:0,
+        marginTop:0
+      },
+      radioListText:{
+          color:color.COLOR_DARKGRAY,
+          fontSize:Typography.FONT_SIZE14,
+          fontFamily:Typography.FONT_MEDIUM,
+          marginTop:viewportWidth*0.008,
+          marginLeft:viewportWidth*0.015
+      },
+      listRadio:{
+        padding:viewportWidth*0.04
+      },
+      titleText:{
+        color:color.COLOR_BLACK,
+        fontSize:Typography.FONT_SIZE,
+        fontFamily:Typography.FONT_MEDIUM,
+        marginBottom:5
+        // paddingHorizontal:viewportWidth*0.02
+    },
+    widthInput:{
+      width:'100%'
+    },
+    modalText:{
+      width:"70%"
+    },
 });
 
 export default MyOrdersStyles;

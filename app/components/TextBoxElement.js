@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
         borderColor: Styles.color.COLOR_RED,
         backgroundColor:color.COLOR_LIGHTRED,
         borderRadius:viewportWidth*0.015,
-        color:color.COLOR_TEXT,
+        color:color.COLOR_DARKTEXT,
       },
       android: {
         marginBottom: viewportWidth* 0.042, 
@@ -134,6 +134,7 @@ const styles = StyleSheet.create({
         backgroundColor:color.COLOR_LIGHTRED,
         position:'relative',
         borderRadius:viewportWidth*0.015,
+        color:color.COLOR_DARKTEXT,
       },
     }),
   }
