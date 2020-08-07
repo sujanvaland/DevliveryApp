@@ -22,7 +22,7 @@ const OverlayActivityIndicatorElement = props => {
   }
   return (
     <View pointerEvents="none" style={loadingStyle}>
-      <ActivityIndicator size='large' />
+      <ActivityIndicator size='large' color="#444"/>
     </View>
   )
 };

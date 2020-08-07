@@ -551,7 +551,7 @@ validateEmail = (value) =>
          
             <View style={PersonalDetailStyles.detailContainer}>
                 <TouchableOpacity style={PersonalDetailStyles.backProfileIcon} onPress={() => { this.navigateToDashboard() }}>
-                  <Icon name={"ios-arrow-back"} style={PersonalDetailStyles.ProfileIcon} />
+                  <Icon name={"chevron-back"} style={PersonalDetailStyles.ProfileIcon} />
                   <Text style={PersonalDetailStyles.backprofile}>My Personal Information</Text>
                 </TouchableOpacity>
                 {
