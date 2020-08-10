@@ -18,6 +18,7 @@ const ApiConstants = {
     PROFILEIMAGE:'account/profileimage',
     UPDATEPROFILEIMAGE :'account/updateprofileimage',
     UPDATEPERSONALDETAIL : 'account/updatepersonaldetail',
+    UPDATEDEVICETOKEN : 'account/updatedevicetoken',
     CHANGEPASSWORD:'account/ChangePassword',
 
     //Order

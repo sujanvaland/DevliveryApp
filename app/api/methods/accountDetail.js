@@ -28,6 +28,17 @@ export  function updatePersonalDetail(action) {
   );
 }
 
+export  function updateDeviceToken(action) {
+  return Api(
+      ApiConstants.UPDATEDEVICETOKEN,
+      {
+        device_token:action.devicetoken
+      },
+      'post',
+      null
+  );
+}
+
 export function changePassword(action) {
   return Api(
     ApiConstants.CHANGEPASSWORD,

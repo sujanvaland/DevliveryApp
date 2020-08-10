@@ -81,3 +81,22 @@ export function onupdatePersonalDetailFailedResponse(response) {
         response
     };
 }
+
+export function updateDeviceToken(devicetoken) {
+    return {
+        type: types.UPDATEDEVICETOKEN_REQUEST,
+        devicetoken
+    };
+}
+export function onupdateDeviceTokenResponse(response) {
+    return {
+        type: types.UPDATEDEVICETOKEN_RESPONSE,
+        response
+    };
+}
+export function onupdateDeviceTokenFailedResponse(response) {
+    return {
+        type: types.UPDATEDEVICETOKENFAILED_RESPONSE,
+        response
+    };
+}

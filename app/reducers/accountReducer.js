@@ -36,6 +36,21 @@ export const accountReducer = createReducer(initialState, {
         };
     },
 
+    //  Update Device Token
+
+    [types.UPDATEDEVICETOKEN_RESPONSE](state,action) {
+        return {
+            ...state,
+            updatedevicetoken:action.response
+        };
+    },
+    [types.UPDATEDEVICETOKENFAILED_RESPONSE](state,action) {
+        return {
+            ...state,
+            updatedevicetoken:null
+        };
+    },
+
     // Change Password
     [types.CHANGEPASSWORD_RESPONSE](state,action) {
         return {
