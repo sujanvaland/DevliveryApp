@@ -6,6 +6,15 @@ import * as dashboardActions from 'app/actions/dashboardActions';
 import * as navigationActions from 'app/actions/navigationActions';
 import { HeaderComponent } from 'app/components';
 import AsyncStorage from '@react-native-community/async-storage';
+//import RNFirebase from 'react-native-firebase';
+import messaging from '@react-native-firebase/messaging';
+//import DeviceInfo from 'react-native-device-info';
+// const configurationOptions = {
+//   debug: true,
+//   promptOnMissingPlayServices: true
+// }
+
+//const firebase = RNFirebase.initializeApp(configurationOptions)
 
 class DashboardContainer extends Component {
     constructor(props) {
@@ -25,7 +34,39 @@ class DashboardContainer extends Component {
             return true;
           }
         });
+
+       // var language = DeviceInfo.getDeviceLocale();
+
+        messaging().getToken().then((token) => {
+          console.log(token);
+          this._onChangeToken(token, "english")
+        });
+
+        messaging().onTokenRefresh((token) => {
+            this._onChangeToken(token, language)
+        });
     }
+
+    _onChangeToken = (token, language) => {
+      var data = {
+        'device_token': token,
+        'device_type': Platform.OS,
+        'device_language': language
+      };
+  
+      this._loadDeviceInfo(data).done();
+    }
+  
+    _loadDeviceInfo = async (deviceData) => {
+      // load the data in 'local storage'.
+      // this value will be used by login and register components.
+      var value = JSON.stringify(deviceData);
+      try {
+        await AsyncStorage.setItem("DEVICE_STORAGE_KEY", value);
+      } catch (error) {
+        console.log(error);
+      }
+    };  
 
     render() {
         return(
