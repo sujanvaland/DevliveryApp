@@ -35,38 +35,40 @@ class DashboardContainer extends Component {
           }
         });
 
-       // var language = DeviceInfo.getDeviceLocale();
-
+       
         messaging().getToken().then((token) => {
-          console.log(token);
-          this._onChangeToken(token, "english")
+          this._onChangeToken(token)
         });
 
         messaging().onTokenRefresh((token) => {
-            this._onChangeToken(token, language)
+            this._onChangeToken(token)
         });
     }
 
-    _onChangeToken = (token, language) => {
-      var data = {
-        'device_token': token,
-        'device_type': Platform.OS,
-        'device_language': language
-      };
-  
-      this._loadDeviceInfo(data).done();
+    _onChangeToken = async (token) => {
+      await AsyncStorage.setItem("DEVICE_TOKEN", token);
     }
+
+    // _onChangeToken = (token, language) => {
+    //   var data = {
+    //     'device_token': token,
+    //     'device_type': Platform.OS,
+    //     'device_language': language
+    //   };
   
-    _loadDeviceInfo = async (deviceData) => {
-      // load the data in 'local storage'.
-      // this value will be used by login and register components.
-      var value = JSON.stringify(deviceData);
-      try {
-        await AsyncStorage.setItem("DEVICE_STORAGE_KEY", value);
-      } catch (error) {
-        console.log(error);
-      }
-    };  
+    //   this._loadDeviceInfo(data).done();
+    // }
+  
+    // _loadDeviceInfo = async (deviceData) => {
+    //   // load the data in 'local storage'.
+    //   // this value will be used by login and register components.
+    //   var value = JSON.stringify(deviceData);
+    //   try {
+    //     await AsyncStorage.setItem("DEVICE_STORAGE_KEY", value);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };  
 
     render() {
         return(
