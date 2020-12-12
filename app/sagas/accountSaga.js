@@ -9,7 +9,7 @@ import * as navigationActions from 'app/actions/navigationActions';
 function* getAccountDetailAsync(action) {
   yield put(loginActions.enableLoader());
   const response = yield call(getAccountDetail,action);
-  //console.log(response);
+  console.log(response);
   if (response.Message === "success") {
       yield put(accountActions.ongetAccountDetailResponse(response.results));
       yield put(loginActions.disableLoader({}));
