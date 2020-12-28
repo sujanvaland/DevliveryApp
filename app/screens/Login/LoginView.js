@@ -47,7 +47,8 @@ class LoginView extends Component {
       firstTimeRender: undefined,
       enableScroll:false,
       ShowEnvMsg:false,
-      CurrentEnv: ""
+      CurrentEnv: "",
+      visible:false
     }
     this.props.loginresponse.ErrorMessage = "";
     this.props.loginresponse.isLoggedIn = true;
@@ -71,7 +72,9 @@ class LoginView extends Component {
     return newState;
   }
 
-
+  togglePassword=()=>{
+    this.setState({ visible: !this.state.visible});
+  }
   navigate = async () => {
     this.props.loginresponse.ErrorMessage='';
     this.submitted = true;
@@ -176,14 +179,14 @@ class LoginView extends Component {
               onChangeText={value => this.updateState("username", value)}
             />
             <View style={loginStyles.textBoxInner}>
-              <Image style={loginStyles.lineImg} source={require('../../assets/img/line.png')} resizeMode="cover" /> 
-              <Image style={loginStyles.textBoxImg} source={require('../../assets/img/user.png')} resizeMode="cover" /> 
+              <Image style={loginStyles.lineImg} source={require('../../assets/img/line.png')} resizeMode="contain" /> 
+              <Image style={loginStyles.passwordImg} source={require('../../assets/img/user.png')} resizeMode="contain" /> 
             </View>
           </View>
           <View style={loginStyles.textBoxContent}>
             <TextBoxElement
               placeholder={content.LoginPassword}
-              secureTextEntry={true}
+              secureTextEntry={(this.state.visible) ? false : true}
               value={password}
               isvalidInput={this.props.loginresponse.ErrorMessage == "" || this.props.loginresponse.ErrorMessage == null}
               autoCapitalize={'none'}
@@ -197,8 +200,10 @@ class LoginView extends Component {
               </View>
             }
             <View style={loginStyles.textBoxInner}>
-              <Image style={loginStyles.lineImg} source={require('../../assets/img/line.png')} resizeMode="cover" /> 
-              <Image style={loginStyles.passwordImg} source={require('../../assets/img/password.png')} resizeMode="cover" /> 
+              <Image style={loginStyles.lineImg} source={require('../../assets/img/line.png')} resizeMode="contain" /> 
+              <TouchableOpacity onPress={this.togglePassword}>
+                <Image style={loginStyles.passwordImg} source={(this.state.visible) ? require('../../assets/img/user.png') : require('../../assets/img/password.png')} resizeMode="contain" /> 
+              </TouchableOpacity>
             </View>
           </View>
           <LinkButton onPress={this.navigateToForgotPassword} title={"Forgot Password?"} />

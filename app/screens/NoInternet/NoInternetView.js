@@ -15,20 +15,20 @@ class NoInternetView extends Component {
   render() {
     
     return (
-        <View style={globalStyles.innerContainer}>
-          <View style={NoInternetStyles.sliderContent}>
+      <View style={globalStyles.innerContainer}>
+      <View style={NoInternetStyles.flexContent}>
+            <View>
               <Text style={NoInternetStyles.title}>No internet connection</Text>
-              
-                <View style={NoInternetStyles.ImgContainer}>
-                  <Image source={require('../../assets/img/no_internet.png')} resizeMode = 'contain' style={NoInternetStyles.sliderImg}/>
-                </View>
-                <Text style={NoInternetStyles.subTitle}>Please check your connection {"\n"}
-                 again or connect to Wi-Fi</Text>
-                <TouchableOpacity style={NoInternetStyles.buttonGreen}>
-                  <Text style={NoInternetStyles.greenButtonText}>Try Again</Text>
-                </TouchableOpacity>
+            </View> 
+            <View style={NoInternetStyles.ImgContainer}>
+              <Image source={require('../../assets/img/no_internet.png')} resizeMode = 'contain' style={NoInternetStyles.sliderImg}/>
             </View>
+            <View>
+              <Text style={NoInternetStyles.subTitle}>Please check your connection {"\n"}
+              again or connect to Wi-Fi</Text>
+             </View>
         </View>
+    </View>
       
     );
   }

@@ -10,6 +10,11 @@ const ForgotPasswordstyles = StyleSheet.create({
         height:viewportHeight,
         top:0
     },
+    passwordImg:{
+        height:viewportWidth*0.05,
+        width:viewportWidth*0.04,
+        marginLeft:viewportWidth*0.035
+    },
     verificationInner:{
         display:'flex',
         justifyContent:'center',
@@ -21,7 +26,7 @@ const ForgotPasswordstyles = StyleSheet.create({
         overflow:'visible',
     },
     ImgContainer:{
-       marginTop:viewportWidth*0.15,
+       marginTop:viewportWidth*0.05,
        marginBottom:viewportWidth*0.07
     },
     titletext:{
@@ -70,8 +75,9 @@ const ForgotPasswordstyles = StyleSheet.create({
           alignItems:'center', 
       },
       lineImg:{
-          height:viewportWidth*0.07, 
-      },
+        height:viewportWidth*0.07, 
+        marginTop:3
+    },
       textBoxImg:{
           height:viewportWidth*0.048,
           width:viewportWidth*0.05,

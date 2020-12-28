@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     textTransform:'none', 
     borderRadius: viewportWidth*0.009,
+    paddingBottom:3
   },
   arrowRight:{
     color:color.COLOR_WHITE,

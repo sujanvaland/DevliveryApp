@@ -114,8 +114,8 @@ class ForgotpassView extends Component {
                    onChangeText={value => this.updateState("username", value)}
                   />
                   <View style={ForgotPasswordstyles.textBoxInner}>
-                    <Image style={ForgotPasswordstyles.lineImg} source={require('../../assets/img/line.png')} resizeMode="cover" /> 
-                    <Image style={ForgotPasswordstyles.textBoxImg} source={require('../../assets/img/user.png')} resizeMode="cover" /> 
+                    <Image style={ForgotPasswordstyles.lineImg} source={require('../../assets/img/line.png')} resizeMode="contain" /> 
+                    <Image style={ForgotPasswordstyles.passwordImg} source={require('../../assets/img/user.png')} resizeMode="contain" /> 
                   </View>
                 </View>
               <TouchableOpacity disabled={disablebtn} style={ForgotPasswordstyles.btnGreen} 

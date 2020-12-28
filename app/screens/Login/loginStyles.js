@@ -86,11 +86,13 @@ const loginStyles = StyleSheet.create({
     },
     lineImg:{
         height:viewportWidth*0.07, 
+        marginTop:3
     },
     textBoxImg:{
         height:viewportWidth*0.048,
         width:viewportWidth*0.05,
-        marginLeft:viewportWidth*0.035
+        marginLeft:viewportWidth*0.035,
+        marginTop:5
     },
     passwordImg:{
         height:viewportWidth*0.05,

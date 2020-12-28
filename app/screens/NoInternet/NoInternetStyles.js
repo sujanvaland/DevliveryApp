@@ -8,25 +8,27 @@ const NoInternetStyles = StyleSheet.create({
         fontSize:Typography.FONT_SIZE17,
         textAlign:'center',
         fontFamily:Typography.FONT_REGULAR,
-        color:color.COLOR_SECONDARY
+        color:color.COLOR_SECONDARY,
+        paddingTop:viewportWidth*0.05
     },
     title:{
         fontSize:Typography.FONT_SIZE17,
         textAlign:'center',
         fontFamily:Typography.FONT_REGULAR,
         color:color.COLOR_SECONDARY,
-        paddingTop:viewportWidth*0.2
+        paddingTop:viewportWidth*0.05
     },
     ImgContainer:{
         width:'100%',
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
-        marginTop:-30
+        //marginTop:-30,
+        height:250
        },
     sliderImg:{
         overflow:'visible',
-        width:viewportWidth - viewportWidth*0.35
+        width:viewportWidth - 150
     },
     greenButtonText:{
         fontSize:Typography.FONT_SIZE20,
@@ -37,6 +39,12 @@ const NoInternetStyles = StyleSheet.create({
         marginHorizontal:viewportWidth*0.25,
         marginTop:viewportWidth*0.08,
         color:color.COLOR_WHITE
+    },
+    flexContent:{
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:"space-around",
+        height:'100%'
     }
 });
 

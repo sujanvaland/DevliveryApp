@@ -20,6 +20,7 @@ class ChangePasswordView extends Component {
       errorMessageconfirmpassword:false,
       eyeOpen:false,
       disable:true,
+      visible:false,
       postChangePassword: {
         oldpassword: '',
         newpassword: '',
@@ -237,7 +238,9 @@ class ChangePasswordView extends Component {
 
    return allInputsValidated;
  }
-
+ togglePassword=()=>{
+  this.setState({ visible: !this.state.visible});
+}
   render() {
     const { button } = Resource_EN
     return (
@@ -260,7 +263,9 @@ class ChangePasswordView extends Component {
                   autoCapitalize={'none'} />
                 <View style={ChangePasswordStyles.textBoxInner}>
                   <Image style={ChangePasswordStyles.lineImg} source={require('../../assets/img/line.png')} resizeMode="cover" />
-                  <Image style={ChangePasswordStyles.passwordImg} source={require('../../assets/img/password.png')} resizeMode="cover" />
+                  <TouchableOpacity onPress={this.togglePassword}>
+                    <Image style={ChangePasswordStyles.passwordImg} source={(this.state.visible) ? require('../../assets/img/user.png') : require('../../assets/img/password.png')} resizeMode="contain" /> 
+                  </TouchableOpacity>
                 </View>
               </View>
               <View style={ChangePasswordStyles.textBoxContent}>
@@ -276,7 +281,9 @@ class ChangePasswordView extends Component {
                   autoCapitalize={'none'} />
                 <View style={ChangePasswordStyles.textBoxInner}>
                   <Image style={ChangePasswordStyles.lineImg} source={require('../../assets/img/line.png')} resizeMode="cover" />
-                  <Image style={ChangePasswordStyles.passwordImg} source={require('../../assets/img/password.png')} resizeMode="cover" />
+                  <TouchableOpacity onPress={this.togglePassword}>
+                    <Image style={ChangePasswordStyles.passwordImg} source={(this.state.visible) ? require('../../assets/img/user.png') : require('../../assets/img/password.png')} resizeMode="contain" /> 
+                  </TouchableOpacity>
                 </View>
               </View>
               <View style={ChangePasswordStyles.textBoxContent}>
@@ -288,11 +295,14 @@ class ChangePasswordView extends Component {
                   maxLength={20}
                   isvalidInput={this.state.isValidconfirmpassword}
                   onEndEditing={() => this.validateInputs("confirmpassword")}
-                  secureTextEntry={true}
+                  secureTextEntry={(this.state.visible) ? false : true}
                   autoCapitalize={'none'} />
                 <View style={ChangePasswordStyles.textBoxInner}>
-                  <Image style={ChangePasswordStyles.lineImg} source={require('../../assets/img/line.png')} resizeMode="cover" />
-                  <Image style={ChangePasswordStyles.passwordImg} source={require('../../assets/img/password.png')} resizeMode="cover" />
+                  <Image style={ChangePasswordStyles.lineImg} source={require('../../assets/img/line.png')} resizeMode="contain" />
+                  {/* <Image style={ChangePasswordStyles.passwordImg} source={require('../../assets/img/password.png')} resizeMode="contain" /> */}
+                  <TouchableOpacity onPress={this.togglePassword}>
+                    <Image style={ChangePasswordStyles.passwordImg} source={(this.state.visible) ? require('../../assets/img/user.png') : require('../../assets/img/password.png')} resizeMode="contain" /> 
+                  </TouchableOpacity>
                 </View>
               </View>
               <View style={ChangePasswordStyles.flexBox}>

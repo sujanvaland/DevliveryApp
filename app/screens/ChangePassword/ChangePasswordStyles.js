@@ -89,6 +89,7 @@ const ChangePasswordStyles = StyleSheet.create({
     },
     lineImg:{
         height:viewportWidth*0.07, 
+        marginTop:3
     },
     textBoxImg:{
         height:viewportWidth*0.048,
