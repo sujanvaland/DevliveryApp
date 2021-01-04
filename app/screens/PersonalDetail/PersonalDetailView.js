@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import { View, Text, Image, TouchableOpacity, StatusBar, TextInput, Dimensions, Platform, ToastAndroid,
+import { View, Text, Image, TouchableOpacity, StatusBar, TextInput, Dimensions, Platform,
   ScrollView} from 'react-native';
 import PersonalDetailStyles from './PersonalDetailStyles';
 import globalStyles from '../../assets/css/globalStyles';
@@ -14,6 +14,7 @@ const { color, Typography } = Styles;
 import DateTimePicker from '@react-native-community/datetimepicker';
 import ApiConstants from '../../api/ApiConstants';
 import * as navigationActions from 'app/actions/navigationActions';
+import Toast from 'react-native-simple-toast';
 
 var todaydate = new Date();
 //let todaydate=today.getDate() + "/"+ parseInt(today.getMonth()+1) +"/"+ today.getFullYear();
@@ -312,7 +313,7 @@ validateEmail = (value) =>
           this.setState({isValidfirstname:true});
         }
         else{
-          ToastAndroid.show("First Name should have min 3 chars and max 30", ToastAndroid.SHORT);
+          Toast.show("First Name should have min 3 chars and max 30", Toast.SHORT);
           this.setState({isValidfirstname:false});
         }
       }
@@ -327,7 +328,7 @@ validateEmail = (value) =>
           this.setState({isValidlastname:true});
         }
         else{
-          ToastAndroid.show("Last Name should have min 3 chars and max 30", ToastAndroid.SHORT);
+          Toast.show("Last Name should have min 3 chars and max 30", Toast.SHORT);
           this.setState({isValidlastname:false});
         }
       }
@@ -342,7 +343,7 @@ validateEmail = (value) =>
             this.setState({isValidemail:true});
           }
           else{
-            ToastAndroid.show("Invalid Email", ToastAndroid.SHORT);
+            Toast.show("Invalid Email", Toast.SHORT);
             this.setState({isValidemail:false});
           }
       }
@@ -359,12 +360,12 @@ validateEmail = (value) =>
             this.setState({isValidphone:true});
           }
           else{
-            ToastAndroid.show("Phone Number length should be 10 digits", ToastAndroid.SHORT);
+            Toast.show("Phone Number length should be 10 digits", Toast.SHORT);
             this.setState({isValidphone:false});
           }
         }
         else{
-            ToastAndroid.show("Phone Number is not valid", ToastAndroid.SHORT);
+            Toast.show("Phone Number is not valid", Toast.SHORT);
             this.setState({isValidphone:false});
         }
       }
@@ -379,7 +380,7 @@ validateEmail = (value) =>
           this.setState({isValidvehicalno:true});
         }
         else{
-          ToastAndroid.show("Vehical No should have min 5 chars and max 15", ToastAndroid.SHORT);
+          Toast.show("Vehical No should have min 5 chars and max 15", Toast.SHORT);
           this.setState({isValidvehicalno:false});
         }
       }
@@ -390,7 +391,7 @@ validateEmail = (value) =>
   updatepersonaldetails = () => {
     if(this.validatePersonalDetail()){
       this.props.onUpdatePersonalDetail(this.state.updateprofile);
-      ToastAndroid.show("Profile Updated Successfully.", ToastAndroid.SHORT);
+      Toast.show("Profile Updated Successfully.", Toast.SHORT);
       this.setState({editDetail:false});
     }
   }
@@ -414,7 +415,7 @@ validateEmail = (value) =>
      if (this.state.updateprofile.firstname.length >= 3 && this.state.updateprofile.firstname.length <= 30) {
       isValidfirstname = true;
      } else {
-       ToastAndroid.show("First Name should have min 3 chars and max 30", ToastAndroid.SHORT);
+       Toast.show("First Name should have min 3 chars and max 30", Toast.SHORT);
        isValidfirstname = false;
      }
    }
@@ -425,7 +426,7 @@ validateEmail = (value) =>
      if (this.state.updateprofile.lastname.length >= 3 && this.state.updateprofile.lastname.length <= 40) {
       isValidlastname = true;
      } else {
-       ToastAndroid.show("Last Name should have min 3 chars and max 40", ToastAndroid.SHORT);
+       Toast.show("Last Name should have min 3 chars and max 40", Toast.SHORT);
        isValidlastname = false;
      }
    }
@@ -450,7 +451,7 @@ validateEmail = (value) =>
           isValidemail = true;
         }
         else{
-          ToastAndroid.show("Invalid Email", ToastAndroid.SHORT);
+          Toast.show("Invalid Email", Toast.SHORT);
           isValidemail = false;
         }
     }
@@ -465,12 +466,12 @@ validateEmail = (value) =>
           isValidphone = true;
         }
         else{
-          ToastAndroid.show("Mobile Number length should be 10 digits", ToastAndroid.SHORT);
+          Toast.show("Mobile Number length should be 10 digits", Toast.SHORT);
           isValidphone = false;
         }
       }
       else{
-          ToastAndroid.show("Mobile Number is not valid", ToastAndroid.SHORT);
+          Toast.show("Mobile Number is not valid", Toast.SHORT);
           isValidphone = false;
       }
     }
@@ -481,7 +482,7 @@ validateEmail = (value) =>
        if (this.state.updateprofile.vehicalno.length >= 5 && this.state.updateprofile.vehicalno.length <= 15) {
         isValidvehicalno = true;
        } else {
-         ToastAndroid.show("Vehical No should have min 5 chars and max 15", ToastAndroid.SHORT);
+         Toast.show("Vehical No should have min 5 chars and max 15", Toast.SHORT);
          isValidvehicalno = false;
        }
      }
@@ -498,7 +499,7 @@ validateEmail = (value) =>
    }
   else
    {
-      ToastAndroid.show("Please check all fields", ToastAndroid.SHORT);
+      Toast.show("Please check all fields", Toast.SHORT);
    }
    
    this.setState({ 

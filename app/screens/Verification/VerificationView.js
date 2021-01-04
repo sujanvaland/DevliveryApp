@@ -5,6 +5,7 @@ import globalStyles from '../../assets/css/globalStyles';
 import PropTypes from 'prop-types';
 import Resource_EN from '../../config/Resource_EN';
 import { TextInput ,ScrollView} from 'react-native-gesture-handler';
+import Toast from 'react-native-simple-toast';
 
 
 class VerificationView extends Component {
@@ -68,13 +69,13 @@ class VerificationView extends Component {
             this.setState({isvalidvone:true});
           }
           else{
-            ToastAndroid.show("Enter only 1 digit.", ToastAndroid.SHORT);
+            Toast.show("Enter only 1 digit.", Toast.SHORT);
             this.updateState("isvalidvone", false);
             this.setState({isvalidvone:false});
           }
         }
         else{
-            ToastAndroid.show("Number is not valid", ToastAndroid.SHORT);
+            Toast.show("Number is not valid", Toast.SHORT);
             this.updateState("isvalidvone", false);
             this.setState({isvalidvone:false});
         }
@@ -94,13 +95,13 @@ class VerificationView extends Component {
             this.setState({isvalidvtwo:true});
           }
           else{
-            ToastAndroid.show("Enter only 1 digit.", ToastAndroid.SHORT);
+            Toast.show("Enter only 1 digit.", Toast.SHORT);
             this.updateState("isvalidvtwo", false);
             this.setState({isvalidvtwo:false});
           }
         }
         else{
-            ToastAndroid.show("Number is not valid", ToastAndroid.SHORT);
+            Toast.show("Number is not valid", Toast.SHORT);
             this.updateState("isvalidvtwo", false);
             this.setState({isvalidvtwo:false});
         }
@@ -120,13 +121,13 @@ class VerificationView extends Component {
             this.setState({isvalidvthree:true});
           }
           else{
-            ToastAndroid.show("Enter only 1 digit.", ToastAndroid.SHORT);
+            Toast.show("Enter only 1 digit.", Toast.SHORT);
             this.updateState("isvalidvthree", false);
             this.setState({isvalidvthree:false});
           }
         }
         else{
-            ToastAndroid.show("Number is not valid", ToastAndroid.SHORT);
+            Toast.show("Number is not valid", Toast.SHORT);
             this.updateState("isvalidvthree", false);
             this.setState({isvalidvthree:false});
         }
@@ -146,13 +147,13 @@ class VerificationView extends Component {
             this.setState({isvalidvfour:true});
           }
           else{
-            ToastAndroid.show("Enter only 1 digit.", ToastAndroid.SHORT);
+            Toast.show("Enter only 1 digit.", Toast.SHORT);
             this.updateState("isvalidvfour", false);
             this.setState({isvalidvfour:false});
           }
         }
         else{
-            ToastAndroid.show("Number is not valid", ToastAndroid.SHORT);
+            Toast.show("Number is not valid", Toast.SHORT);
             this.updateState("isvalidvfour", false);
             this.setState({isvalidvfour:false});
         }

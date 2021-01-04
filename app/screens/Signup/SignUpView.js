@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { get } from 'lodash';
-import { View, Text, Image, TouchableOpacity, KeyboardAvoidingView,ToastAndroid,StatusBar } from 'react-native';
+import { View, Text, Image, TouchableOpacity, KeyboardAvoidingView,StatusBar } from 'react-native';
 import styles from './signupStyles';
 import globalStyles from '../../assets/css/globalStyles';
 import Resource_EN from '../../config/Resource_EN';
@@ -9,6 +9,7 @@ import { TextBoxElement, PhoneTextBoxElement, ButtonElement,OverlayActivityIndic
 import { ScrollView } from 'react-native-gesture-handler';
 import {CheckBox} from 'native-base';
 import SplashScreen from 'react-native-splash-screen';
+import Toast from 'react-native-simple-toast';
 
 const { heading } = Resource_EN;
 const { content } = Resource_EN;
@@ -66,7 +67,7 @@ class SignUpView extends Component {
      
       if(allInputsValidated){
         // if(!this.state.termsChecked){
-        //   ToastAndroid.show("Please agree to Terms of Use", ToastAndroid.SHORT);
+        //   Toast.show("Please agree to Terms of Use", Toast.SHORT);
         //   allInputsValidated = false;
         // }
       }
@@ -118,7 +119,7 @@ class SignUpView extends Component {
           this.setState({isvalidfullname:true});
         }
         else{
-          ToastAndroid.show("Fullname should have min 3 chars and max 50", ToastAndroid.SHORT);
+          Toast.show("Fullname should have min 3 chars and max 50", Toast.SHORT);
           this.updateState("isvalidfullname", false);
           this.setState({isvalidfullname:false});
         }
@@ -136,7 +137,7 @@ class SignUpView extends Component {
             this.setState({isvalidemail:true});
           }
           else{
-            ToastAndroid.show("Invalid Email", ToastAndroid.SHORT);
+            Toast.show("Invalid Email", Toast.SHORT);
             this.updateState("isvalidemail", false);
             this.setState({isvalidemail:false});
           }
@@ -156,13 +157,13 @@ class SignUpView extends Component {
             this.setState({isvalidphone:true});
           }
           else{
-            ToastAndroid.show("Phone Number length should be 10 to 15 digits", ToastAndroid.SHORT);
+            Toast.show("Phone Number length should be 10 to 15 digits", Toast.SHORT);
             this.updateState("isvalidphone", false);
             this.setState({isvalidphone:false});
           }
         }
         else{
-            ToastAndroid.show("Phone Number is not valid", ToastAndroid.SHORT);
+            Toast.show("Phone Number is not valid", Toast.SHORT);
             this.updateState("isvalidphone", false);
             this.setState({isvalidphone:false});
         }
@@ -180,7 +181,7 @@ class SignUpView extends Component {
             this.setState({isvalidusername:true});
         }
         else{
-            ToastAndroid.show("Username should have min 3 and max 30 char", ToastAndroid.SHORT);
+            Toast.show("Username should have min 3 and max 30 char", Toast.SHORT);
             this.updateState("isvalidusername", false);
             this.setState({isvalidusername:false});
         }
@@ -198,7 +199,7 @@ class SignUpView extends Component {
           this.setState({isvalidpassword:true});
         }
         else{
-          ToastAndroid.show("Password must be min 8 chars", ToastAndroid.SHORT);
+          Toast.show("Password must be min 8 chars", Toast.SHORT);
             this.updateState("isvalidpassword", false);
             this.setState({isvalidpassword:false});
         }
@@ -208,7 +209,7 @@ class SignUpView extends Component {
     if(fieldName == "company"){
       if(this.state.userDetails.company != "" ){
         if(this.state.userDetails.company.length > 200){
-          ToastAndroid.show("Company name should be less then 200 char", ToastAndroid.SHORT);
+          Toast.show("Company name should be less then 200 char", Toast.SHORT);
           this.updateState("isvalidcompany", false);
           this.setState({isvalidpassword:false});
         }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput,TouchableOpacity,PermissionsAndroid,ToastAndroid,Keyboard} from 'react-native';
+import { View, Text, TextInput,TouchableOpacity,PermissionsAndroid,Keyboard} from 'react-native';
 import { get } from 'lodash';
 import { OverlayActivityIndicatorElement } from "../../components";
 import { ListItem, Radio, Icon } from "native-base";
