@@ -70,7 +70,7 @@ class ChangePasswordView extends Component {
         this.setState({isvalidoldpassword:false});
       }
       else{
-        if(this.state.postChangePassword.oldpassword.length >= 3 && this.state.postChangePassword.oldpassword.length <=20){
+        if(this.state.postChangePassword.oldpassword.length >= 8 && this.state.postChangePassword.oldpassword.length <=20){
           
           if(this.state.postChangePassword.oldpassword === this.state.postChangePassword.newpassword)
           {
@@ -84,7 +84,7 @@ class ChangePasswordView extends Component {
           
         }
         else{
-          Toast.show("Current Password should have min 3 chars and max 20", Toast.SHORT);
+          Toast.show("Current Password should have min 8 chars and max 20", Toast.SHORT);
           this.setState({isvalidoldpassword:false});
         }
       }
@@ -95,7 +95,7 @@ class ChangePasswordView extends Component {
         this.setState({isvalidnewpassword:false});
       }
       else{
-        if(this.state.postChangePassword.newpassword.length >= 3 && this.state.postChangePassword.newpassword.length <=20){
+        if(this.state.postChangePassword.newpassword.length >= 8 && this.state.postChangePassword.newpassword.length <=20){
           if(this.state.postChangePassword.oldpassword === this.state.postChangePassword.newpassword)
           {
             Toast.show("Old Password and New Password are same. Please change it.", Toast.SHORT);
@@ -107,7 +107,7 @@ class ChangePasswordView extends Component {
           }
         }
         else{
-          Toast.show("New Password should have min 3 chars and max 20", Toast.SHORT);
+          Toast.show("New Password should have min 8 chars and max 20", Toast.SHORT);
           this.setState({isvalidnewpassword:false});
         }
       }
@@ -118,7 +118,7 @@ class ChangePasswordView extends Component {
         this.setState({isvalidconfirmpassword:false});
       }
       else{
-        if(this.state.postChangePassword.confirmpassword.length >= 3 && this.state.postChangePassword.confirmpassword.length <=20){
+        if(this.state.postChangePassword.confirmpassword.length >= 8 && this.state.postChangePassword.confirmpassword.length <=20){
           
           if(this.state.postChangePassword.newpassword === this.state.postChangePassword.confirmpassword)
           {
@@ -131,7 +131,7 @@ class ChangePasswordView extends Component {
           }
         }
         else{
-          Toast.show("Confirm Password should have min 3 chars and max 20", Toast.SHORT);
+          Toast.show("Confirm Password should have min 8 chars and max 20", Toast.SHORT);
           this.setState({isvalidconfirmpassword:false});
         }
       }
@@ -157,7 +157,7 @@ class ChangePasswordView extends Component {
       isvalidoldpassword = false;
     }
     else{
-      if(this.state.postChangePassword.oldpassword.length >= 3 && this.state.postChangePassword.oldpassword.length <=20){
+      if(this.state.postChangePassword.oldpassword.length >= 8 && this.state.postChangePassword.oldpassword.length <=20){
         if(this.state.postChangePassword.oldpassword === this.state.postChangePassword.newpassword)
           {
             Toast.show("Old Password and New Password are same. Please change it.", Toast.SHORT);
@@ -169,7 +169,7 @@ class ChangePasswordView extends Component {
           }
       }
       else{
-        Toast.show("Current Password should have min 3 chars and max 20", Toast.SHORT);
+        Toast.show("Current Password should have min 8 chars and max 20", Toast.SHORT);
         isvalidoldpassword = false;
       }
     }
@@ -179,7 +179,7 @@ class ChangePasswordView extends Component {
       isvalidnewpassword = false;
     }
     else{
-      if(this.state.postChangePassword.newpassword.length >= 3 && this.state.postChangePassword.newpassword.length <=20){
+      if(this.state.postChangePassword.newpassword.length >= 8 && this.state.postChangePassword.newpassword.length <=20){
         if(this.state.postChangePassword.oldpassword === this.state.postChangePassword.newpassword)
           {
             Toast.show("Old Password and New Password are same. Please change it.", Toast.SHORT);
@@ -191,7 +191,7 @@ class ChangePasswordView extends Component {
           }
       }
       else{
-        Toast.show("New Password should have min 3 chars and max 20", Toast.SHORT);
+        Toast.show("New Password should have min 8 chars and max 20", Toast.SHORT);
         isvalidnewpassword = false;
       }
     }
@@ -201,7 +201,7 @@ class ChangePasswordView extends Component {
       isvalidconfirmpassword = false;
     }
     else{
-      if(this.state.postChangePassword.confirmpassword.length >= 3 && this.state.postChangePassword.confirmpassword.length <=20){
+      if(this.state.postChangePassword.confirmpassword.length >= 8 && this.state.postChangePassword.confirmpassword.length <=20){
         
         if(this.state.postChangePassword.newpassword === this.state.postChangePassword.confirmpassword)
         {
@@ -214,7 +214,7 @@ class ChangePasswordView extends Component {
         }
       }
       else{
-        Toast.show("Confirm Password should have min 3 chars and max 20", Toast.SHORT);
+        Toast.show("Confirm Password should have min 8 chars and max 20", Toast.SHORT);
         isvalidconfirmpassword = false;
       }
     }
