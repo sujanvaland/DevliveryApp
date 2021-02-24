@@ -9,7 +9,7 @@ const ApiConstants = {
     RatingFallbackUrl : "http://api.thedailymeat.in/apprating",
     PRODUCTIMGPATH : 'uploads/productimage/',
     PROFILEIMGPATH : 'uploads/customerimage/',
-    GOOGLEAPIKEY:'AIzaSyAKKEplE__ZhgDZAKSM7-ObelAcBPX0P_M',
+    GOOGLEAPIKEY:'AIzaSyCMNMhlGKV6oDaL7EW8NRmEna7oQoOPXH0',
     //API PATH
     LOGINPATH: 'login/deliverystaff_login',
     //ACCOUNTVERIFICATIONPATH:'login/verify_customer',

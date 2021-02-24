@@ -10,8 +10,8 @@ import ApiConstants from '../../api/ApiConstants';
 import * as navigationActions from 'app/actions/navigationActions';
 import getDirections from 'react-native-google-maps-directions'
 import Geolocation from 'react-native-geolocation-service';
-import Geocoder from 'react-native-geocoding';
-Geocoder.init(ApiConstants.GOOGLEAPIKEY); 
+// import Geocoder from 'react-native-geocoding';
+// Geocoder.init(ApiConstants.GOOGLEAPIKEY); 
 
 class OrderDetailView extends Component {
   constructor(props) {

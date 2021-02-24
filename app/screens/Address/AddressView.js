@@ -16,7 +16,6 @@ import Geocoder from 'react-native-geocoding';
 import { lessThan } from 'react-native-reanimated';
 import ApiConstants from '../../api/ApiConstants';
 
-Geocoder.init(ApiConstants.GOOGLEAPIKEY); 
 class AddressView extends Component {
   constructor(props) {
     super(props);
@@ -72,6 +71,7 @@ class AddressView extends Component {
   }
 
   onRegionChange(region){
+    Geocoder.init(ApiConstants.GOOGLEAPIKEY); 
     if(!region){
       region = this.state.region;
     }
