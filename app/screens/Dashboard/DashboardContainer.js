@@ -27,9 +27,9 @@ class DashboardContainer extends Component {
         this._onChangeToken(token)
       });
 
-      messaging().onTokenRefresh((token) => {
-          this._onChangeToken(token)
-      });
+      // messaging().onTokenRefresh((token) => {
+      //     this._onChangeToken(token)
+      // });
     }
 
     // and don't forget to remove the listener
