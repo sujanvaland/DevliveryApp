@@ -194,20 +194,20 @@ const RNApp = createStackNavigator(
         }
     },
     {
-        initialRouteName: "Address"
+        initialRouteName: "Login"
     } 
 );
-export default createAppContainer(RNApp);
+//export default createAppContainer(RNApp);
 
-// export default createAppContainer(
-//     createSwitchNavigator(
-//       {
-//         AuthLoading: AuthLoadingScreen,
-//         App: RNApp,
-//         Auth: AuthStack,
-//       },
-//       {
-//         initialRouteName: 'AuthLoading',
-//       }
-//     )
-//   );
+export default createAppContainer(
+    createSwitchNavigator(
+      {
+        AuthLoading: AuthLoadingScreen,
+        App: RNApp,
+        Auth: AuthStack,
+      },
+      {
+        initialRouteName: 'AuthLoading',
+      }
+    )
+  );

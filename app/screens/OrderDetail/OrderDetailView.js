@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { get } from 'lodash';
-import { View, Text, Image, TouchableOpacity,ScrollView,PermissionsAndroid} from 'react-native';
+import { View, Text, Image, TouchableOpacity,ScrollView,PermissionsAndroid,Linking,Platform} from 'react-native';
 import { OverlayActivityIndicatorElement } from "../../components";
 import OrderDetailStyles from './OrderDetailStyles';
 import globalStyles from '../../assets/css/globalStyles';
@@ -32,6 +32,13 @@ class OrderDetailView extends Component {
   async componentDidMount() {
     this.getCurrentLocation();
   }
+
+dialCall = (number) => {
+  let phoneNumber = '';
+  if (Platform.OS === 'android') { phoneNumber = `tel:${number}`; }
+  else {phoneNumber = `telprompt:${number}`; }
+  Linking.openURL(phoneNumber);
+};
 
 getOrderStatus(id){
     if(id == 1) 
@@ -222,7 +229,9 @@ render() {
                     <View style={OrderDetailStyles.box}>
                       <View style={OrderDetailStyles.boxInner}>
                           <Text style={OrderDetailStyles.label}>Phone / Mobile No.:</Text>
-                          <Text style={OrderDetailStyles.detail}>{orderdetail[0].phone}</Text>
+                          <TouchableOpacity onPress={()=>{this.dialCall(orderdetail[0].phone)}}>
+                            <Text style={OrderDetailStyles.detail}>{orderdetail[0].phone}</Text>
+                          </TouchableOpacity>
                       </View >
                       <View style={OrderDetailStyles.boxInner}>
                           <Text style={OrderDetailStyles.label}>Payment Method:</Text>
