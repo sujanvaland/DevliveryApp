@@ -48,7 +48,7 @@
     "react-native-splash-screen": "^3.2.0",
     "react-native-swipeout": "^2.3.6",
     "react-native-tab-view": "^2.14.4",
-    "react-native-webview": "^9.2.1",
+    "react-native-webview": "^11.0.0",
     "react-navigation": "^4.3.8",
     "react-navigation-stack": "^2.8.2",
     "react-redux": "^7.2.1",
