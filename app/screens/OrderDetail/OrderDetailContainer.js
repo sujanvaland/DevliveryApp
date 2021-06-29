@@ -10,24 +10,41 @@ class OrderDetailContainer extends Component {
     constructor(props) {
         super(props);
     }
-    componentDidMount() {
-        let currentRoute = this.props.navigation.state.routeName;
-          let navigation = this.props.navigation;
-          BackHandler.addEventListener ('hardwareBackPress', function(){
-            if (currentRoute == "Login") {
-              BackHandler.exitApp();
-              return true;
-            }
-            else{
-              navigation.goBack();
-              return true;
-            }
-          });
+
+    // define a separate function to get triggered on focus
+    async onFocusFunction () {
+      const { getCustomerOrders } = this.props;
+      getCustomerOrders();
+    }
+
+    // and don't forget to remove the listener
+    componentWillUnmount () {
+      this.focusListener.remove()
+    }
+  
+  async componentDidMount(){
+
+    let currentRoute = this.props.navigation.state.routeName;
+    let navigation = this.props.navigation;
+    BackHandler.addEventListener ('hardwareBackPress', function(){
+      if (currentRoute == "Login") {
+        BackHandler.exitApp();
+        return true;
       }
+      else{
+        navigation.goBack();
+        return true;
+      }
+    });
+    
+    this.focusListener = this.props.navigation.addListener('didFocus', () => {
+        this.onFocusFunction();
+      })
+    } 
     
     render() {
       const { params } = this.props.navigation.state;
-      const orderid = params ? params : null;
+      const orderid = params ? params.orderid : null;
       return <OrderDetailView orderid={orderid} {...this.props} />;
     }
 }
@@ -42,6 +59,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
       changeOrderStatus: (orderitem) => dispatch(orderActions.changeOrderStatus(orderitem)),
+      getCustomerOrders: () => dispatch(orderActions.getCustomerOrders())
     };
 }
 export default connect(

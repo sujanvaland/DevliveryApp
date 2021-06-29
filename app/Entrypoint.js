@@ -24,17 +24,17 @@ export default class Entrypoint extends Component {
             if(remoteMessage.data.type=="OrderDetail")
             {
             const orderid=remoteMessage.data.orderid.toString();
-            navigationActions.navigateToOrderDetail(orderid);
+            navigationActions.navigateToOrderDetail({orderid:orderid});
             }
         });
 
         messaging().getInitialNotification().then(this.handleSelected);
         handleSelected = async remoteMessage => {
-            // if(remoteMessage.data.type=="OrderDetail")
-            // {
-            //     const orderid=remoteMessage.data.orderid.toString();
-            //     navigationActions.navigateToOrderDetail(orderid);
-            // }
+            if(remoteMessage.data.type=="OrderDetail")
+            {
+                const orderid=remoteMessage.data.orderid.toString();
+                navigationActions.navigateToOrderDetail({orderid:orderid});
+            }
         };
     }
     

@@ -37,7 +37,7 @@ class MyOrdersView extends Component {
     }
   }
   navigateToOrderDetail = (order) => {
-    navigationActions.navigateToOrderDetail(order.id);
+    navigationActions.navigateToOrderDetail({orderid:order.id});
   }
 
   getOrderByStatus(value){
