@@ -1,12 +1,12 @@
 /* App config for apis
  */
 const ApiConstants = {
-    BASE_URL: 'http://api.thedailymeat.in/api',
+    BASE_URL: 'https://api.thedailymeat.in/api',
     LANGUAGE: 'language',
-    SITEURL:'http://api.thedailymeat.in/',
+    SITEURL:'https://api.thedailymeat.in/',
     AppleAppID:'493554377',
     GooglePackageName:'com.tdmdelivery.tdmdelivery',
-    RatingFallbackUrl : "http://api.thedailymeat.in/apprating",
+    RatingFallbackUrl : "https://api.thedailymeat.in/apprating",
     PRODUCTIMGPATH : 'uploads/productimage/',
     PROFILEIMGPATH : 'uploads/customerimage/',
     GOOGLEAPIKEY:'AIzaSyAKKEplE__ZhgDZAKSM7-ObelAcBPX0P_M',

@@ -133,7 +133,7 @@ class MyOrdersView extends Component {
           {
             get(loading, 'isLoading') && <OverlayActivityIndicatorElement />
           }
-          <View style={MyOrdersStyles.tabHeader}>
+          {/* <View style={MyOrdersStyles.tabHeader}>
                 <TouchableOpacity onPress={() => this.toggleModal('Sort')}  style={[MyOrdersStyles.tabBox]}>
                    <Image style={MyOrdersStyles.sortImg} source={require('../../assets/img/sort.png')} resizeMode="contain" /> 
                    <Text style={MyOrdersStyles.tabText}>Sort</Text>
@@ -143,7 +143,7 @@ class MyOrdersView extends Component {
                    <Image style={MyOrdersStyles.sortImg} source={require('../../assets/img/filter.png')} resizeMode="contain" /> 
                    <Text style={MyOrdersStyles.tabText}>Filter</Text>
                 </TouchableOpacity>
-          </View>
+          </View> */}
           <View style={MyOrdersStyles.tabContent}>
               <ScrollView refreshControl={
                   <RefreshControl onRefresh={this._refresh} refreshing={this.state.isRefreshing}/>}>
